@@ -35,7 +35,9 @@
 		"release": "changeset version",
 		"start:cli": "turbo --filter=create-svapp start",
 		"start:web": "turbo --filter=@svapp/web start",
-		"typecheck": "turbo typecheck"
+		"typecheck": "turbo typecheck",
+		"pub:beta": "cd cli && pnpm pub:beta",
+		"pub:release": "cd cli && pnpm pub:release"
 	},
 	"packageManager": "pnpm@8.15.6",
 	"engines": {
