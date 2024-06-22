@@ -32,7 +32,7 @@
 		"package.json"
 	],
 	"scripts": {
-		"typecheck": "tsc",
+		"typecheck": "tsc --noEmit",
 		"build": "tsup",
 		"dev": "tsup --watch",
 		"clean": "rm -rf dist .turbo node_modules",
