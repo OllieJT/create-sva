@@ -1,7 +1,30 @@
 {
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ]
+	"eslint.validate": ["javascript", "svelte", "typescript"],
+	"eslint.workingDirectories": ["web", "cli"],
+	"eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
+
+	"typescript.tsdk": "node_modules/typescript/lib",
+
+	"todo-tree.tree.scanMode": "workspace only",
+
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.codeActionsOnSave": {
+			"source.fixAll.prettier": "explicit"
+		}
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.codeActionsOnSave": {
+			"source.fixAll.prettier": "explicit",
+			"source.organizeImports": "explicit"
+		}
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.codeActionsOnSave": {
+			"source.fixAll.prettier": "explicit",
+			"source.organizeImports": "explicit"
+		}
+	}
 }
