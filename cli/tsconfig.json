@@ -1,11 +1,11 @@
 {
-  "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "$src/*": ["./src/*"]
-    },
-    "checkJs": true
-  },
-  "include": ["src", "tsup.config.ts", "../reset.d.ts", "prettier.config.mjs"]
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"$src/*": ["./src/*"]
+		},
+		"checkJs": true
+	},
+	"include": ["src", "tsup.config.ts", "../reset.d.ts", "prettier.config.mjs"]
 }
