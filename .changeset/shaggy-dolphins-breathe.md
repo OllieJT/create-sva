@@ -1,5 +1,0 @@
----
-'create-svapp': patch
----
-
-Initialize
