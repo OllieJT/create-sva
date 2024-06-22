@@ -1,19 +1,38 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write ."
-  },
-  "devDependencies": {
-    "prettier": "^3.2.5",
-    "prettier-plugin-svelte": "^3.2.2",
-    "turbo": "^2.0.4"
-  },
-  "packageManager": "pnpm@8.15.6",
-  "engines": {
-    "node": ">=18"
-  },
-  "name": "with-svelte"
+	"name": "@svapp/root",
+	"version": "0.0.0",
+	"description": "",
+	"author": "Ollie Taylor <ollie@designthen.dev> (https://designthen.dev)",
+	"maintainers": [],
+	"type": "module",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/olliejt/create-svapp.git"
+	},
+	"keywords": [
+		"create-svapp",
+		"svapp",
+		"svelte stack",
+		"svelte",
+		"tailwind",
+		"typescript",
+		"svelte auth"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"format": "prettier --write .",
+		"lint": "turbo run lint",
+		"release": "changeset version"
+	},
+	"devDependencies": {
+		"prettier": "^3.3.2",
+		"prettier-plugin-svelte": "^3.2.5",
+		"turbo": "^2.0.4"
+	},
+	"packageManager": "pnpm@8.15.6",
+	"engines": {
+		"node": ">=20"
+	}
 }
