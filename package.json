@@ -1,19 +1,68 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write ."
-  },
-  "devDependencies": {
-    "prettier": "^3.2.5",
-    "prettier-plugin-svelte": "^3.2.2",
-    "turbo": "^2.0.4"
-  },
-  "packageManager": "pnpm@8.15.6",
-  "engines": {
-    "node": ">=18"
-  },
-  "name": "with-svelte"
+	"name": "@svapp/root",
+	"version": "0.0.0",
+	"description": "Create web application with the SvApp stack",
+	"author": "Ollie Taylor <ollie@designthen.dev> (https://designthen.dev)",
+	"maintainers": [],
+	"type": "module",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/olliejt/create-svapp.git"
+	},
+	"keywords": [
+		"create-svapp",
+		"svapp",
+		"svelte stack",
+		"svelte",
+		"tailwind",
+		"typescript",
+		"svelte auth"
+	],
+	"scripts": {
+		"build:cli": "turbo --filter=create-svapp build",
+		"build:docs": "turbo --filter=docs build",
+		"build": "turbo build",
+		"check": "turbo lint typecheck format:check && manypkg check",
+		"clean": "turbo clean && rm -rf node_modules",
+		"dev:cli": "turbo --filter=create-svapp dev",
+		"dev:docs": "turbo --filter=docs dev",
+		"dev": "turbo dev",
+		"format:check": "turbo format:check && prettier --check '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
+		"format": "turbo format && prettier --write '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
+		"lint:fix": "turbo lint:fix && manypkg fix",
+		"lint": "turbo lint && manypkg check",
+		"release": "changeset version",
+		"start:cli": "turbo --filter=create-svapp start",
+		"start:docs": "turbo --filter=docs start",
+		"typecheck": "turbo typecheck"
+	},
+	"packageManager": "pnpm@8.15.6",
+	"engines": {
+		"node": ">=20"
+	},
+	"dependencies": {
+		"@changesets/changelog-github": "^0.5.0",
+		"@changesets/cli": "^2.27.5",
+		"@eslint/compat": "^1.1.0",
+		"@eslint/eslintrc": "^3.1.0",
+		"@eslint/js": "^9.5.0",
+		"@manypkg/cli": "^0.21.4",
+		"@total-typescript/ts-reset": "^0.5.1",
+		"@types/eslint": "^8.56.7",
+		"@types/node": "^20.12.12",
+		"@typescript-eslint/eslint-plugin": "^7.10.0",
+		"@typescript-eslint/parser": "^7.10.0",
+		"eslint": "^9.0.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-prettier": "^5.1.3",
+		"eslint-plugin-svelte": "^2.36.0",
+		"globals": "^15.0.0",
+		"prettier": "^3.3.2",
+		"prettier-plugin-svelte": "^3.2.5",
+		"turbo": "^2.0.4",
+		"typescript": "^5.4.5",
+		"typescript-eslint": "^8.0.0-alpha.20"
+	}
 }
