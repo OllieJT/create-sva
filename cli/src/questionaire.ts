@@ -1,4 +1,5 @@
-import { CLI_DESCRIPTION, CLI_NAME, CLI_VERSION, DEFAULT_APP_NAME } from '$src/data/constants.js';
+import { CLI_DESCRIPTION, CLI_NAME, DEFAULT_APP_NAME } from '$src/data/constants.js';
+import { get_svapp_version, get_user_pkg_manager } from '$src/data/globals.js';
 import {
 	AvailablePackages,
 	adapter_options,
@@ -6,7 +7,6 @@ import {
 	css_options,
 	database_options,
 } from '$src/data/options.js';
-import { get_user_pkg_manager } from '$src/utility/get-user-pkg-manager.js';
 import { validate_app_name } from '$src/utility/validate-app-name.js';
 import * as p from '@clack/prompts';
 import chalk from 'chalk';
@@ -44,6 +44,9 @@ const default_options: CliResults = {
 
 export const run_questionaire = async (): Promise<CliResults> => {
 	const configuration = default_options;
+	const CLI_VERSION = get_svapp_version();
+	const PKG_MANAGER = get_user_pkg_manager();
+
 	const program = new Command();
 
 	// CLI Attributes
@@ -93,8 +96,6 @@ export const run_questionaire = async (): Promise<CliResults> => {
 	if (configuration.flags.default) {
 		return configuration;
 	}
-
-	const pkg_manager = get_user_pkg_manager();
 
 	const project = await p.group(
 		{
@@ -159,8 +160,8 @@ export const run_questionaire = async (): Promise<CliResults> => {
 				install: () => {
 					return p.confirm({
 						message:
-							`Should we run '${pkg_manager}` +
-							(pkg_manager === 'yarn' ? `'?` : ` install' for you?`),
+							`Should we run '${PKG_MANAGER}` +
+							(PKG_MANAGER === 'yarn' ? `'?` : ` install' for you?`),
 						initialValue: !default_options.flags.noInstall,
 					});
 				},
