@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { initialize_packages } from '$src/installers/index.js';
 import { run_questionaire } from '$src/questionaire.js';
 import { logger } from '$src/utility/logger.js';
 import { render_title } from '$src/utility/render-title.js';
@@ -16,6 +17,8 @@ const main = async () => {
 	const opts = await run_questionaire();
 
 	// TODO: Implement package installation
+
+	const use_packages = initialize_packages(opts.packages);
 
 	// TODO: Scaffold project
 

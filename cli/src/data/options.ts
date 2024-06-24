@@ -21,10 +21,12 @@ export const database_options = [
 	{ value: 'postgres', label: 'PostgreSQL' },
 ] satisfies ClackOption<DatabaseSolution>[];
 
-export const css_solutions = ['css', 'tailwind'] as const;
+export const css_solutions = ['none', 'tailwind', 'shadcn', 'bits_ui'] as const;
 export type CssSolution = (typeof css_solutions)[number];
 export const css_options = [
-	{ value: 'css', label: 'Just CSS' },
+	{ value: 'none', label: 'Just CSS' },
+	{ value: 'bits_ui', label: 'bits UI', hint: 'With Tailwind' },
+	{ value: 'shadcn', label: 'shadcn', hint: 'With Tailwind' },
 	{ value: 'tailwind', label: 'Tailwind CSS' },
 ] satisfies ClackOption<CssSolution>[];
 
@@ -48,9 +50,9 @@ export const adapter_options = [
 ] satisfies ClackOption<AdapterSolution>[];
 
 type AdapterPackages = `adapter:${AdapterSolution}`;
-type AuthPackages = `auth:${Exclude<AuthSolution, 'none'>}`;
-type CssPackages = `css:${Exclude<CssSolution, 'css'>}`;
-type DatabasePackages = `drizzle:${DatabaseSolution}`;
+type AuthPackages = Exclude<AuthSolution, 'none'>;
+type CssPackages = Exclude<CssSolution, 'none'>;
+type DatabasePackages = 'drizzle' | DatabaseSolution;
 
 export const available_packages = [
 	// SvelteKit adapters
@@ -61,14 +63,17 @@ export const available_packages = [
 	'adapter:auto',
 
 	// Auth solutions
-	'auth:lucia',
+	'lucia',
 
 	// CSS solutions
-	'css:tailwind',
+	'tailwind',
+	'shadcn',
+	'bits_ui',
 
 	// Database solutions
-	'drizzle:mysql',
-	'drizzle:sqlite',
-	'drizzle:postgres',
+	'drizzle',
+	'mysql',
+	'sqlite',
+	'postgres',
 ] satisfies (AdapterPackages | AuthPackages | CssPackages | DatabasePackages)[];
 export type AvailablePackages = (typeof available_packages)[number];

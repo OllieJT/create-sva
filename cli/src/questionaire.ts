@@ -30,7 +30,7 @@ interface CliResults {
 
 const default_options: CliResults = {
 	app_name: DEFAULT_APP_NAME,
-	packages: ['drizzle:sqlite', 'css:tailwind', 'auth:lucia', 'adapter:auto'],
+	packages: ['sqlite', 'drizzle', 'tailwind', 'lucia', 'adapter:auto'],
 	flags: {
 		noGit: false,
 		noInstall: false,
@@ -180,11 +180,13 @@ export const run_questionaire = async (): Promise<CliResults> => {
 	if (project.adapter === 'netlify') packages.push('adapter:netlify');
 	if (project.adapter === 'cloudflare') packages.push('adapter:cloudflare');
 	if (project.adapter === 'auto') packages.push('adapter:auto');
-	if (project.auth == 'lucia') packages.push('auth:lucia');
-	if (project.css === 'tailwind') packages.push('css:tailwind');
-	if (project.database === 'mysql') packages.push('drizzle:mysql');
-	if (project.database === 'sqlite') packages.push('drizzle:sqlite');
-	if (project.database === 'postgres') packages.push('drizzle:postgres');
+	if (project.auth == 'lucia') packages.push('lucia');
+	if (project.css === 'tailwind') packages.push('tailwind');
+	if (project.css === 'shadcn') packages.push('tailwind', 'shadcn');
+	if (project.css === 'bits_ui') packages.push('tailwind', 'bits_ui');
+	if (project.database === 'mysql') packages.push('mysql', 'drizzle');
+	if (project.database === 'sqlite') packages.push('sqlite', 'drizzle');
+	if (project.database === 'postgres') packages.push('postgres', 'drizzle');
 
 	return {
 		app_name: project.name ?? configuration.app_name,
