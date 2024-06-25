@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import { get_svapp_version } from '$src/data/globals.js';
 import { createProject } from '$src/helper/create-project.js';
+import { initialize_git } from '$src/helper/initialize-git.js';
+import { install_dependencies } from '$src/helper/install-dependencies.js';
 import { render_next_steps } from '$src/helper/render-next-steps.js';
 import { initialize_packages } from '$src/installers/installer.js';
 import { run_questionaire } from '$src/questionaire.js';
@@ -47,10 +49,10 @@ const main = async () => {
 	fs.writeJSONSync(path.join(project_dir, 'package.json'), pkg_json, { spaces: 2 });
 
 	if (!no_install) {
-		// TODO: Implement install_dependencies
+		await install_dependencies({ project_dir });
 	}
 
-	// TODO: Implement initialize_git
+	await initialize_git({ project_dir });
 
 	await render_next_steps({
 		database_solution,
