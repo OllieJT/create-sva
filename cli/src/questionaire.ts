@@ -2,10 +2,12 @@ import { CLI_DESCRIPTION, CLI_NAME, DEFAULT_APP_NAME } from '$src/data/constants
 import { get_svapp_version, get_user_pkg_manager } from '$src/data/globals.js';
 import {
 	AvailablePackages,
+	DatabaseSolution,
 	adapter_options,
 	auth_options,
 	css_options,
 	database_options,
+	hook_options,
 } from '$src/data/options.js';
 import { validate_app_name } from '$src/utility/validate-app-name.js';
 import * as p from '@clack/prompts';
@@ -13,8 +15,7 @@ import chalk from 'chalk';
 import { Command } from 'commander';
 
 interface CliFlags {
-	noGit: boolean; // initialize a git repo
-	noInstall: boolean; // run the package manager's install command
+	no_install: boolean; // run the package manager's install command
 	default: boolean; // bypass the CLI and use all default options
 }
 
@@ -22,7 +23,7 @@ interface CliResults {
 	app_name: string;
 	packages: AvailablePackages[];
 	flags: CliFlags;
-	// database_solution: DatabaseSolution;
+	database_solution: DatabaseSolution;
 	// css_solution: CssSolution;
 	// auth_solution: AuthSolution;
 	// adapter_solution: AdapterSolution;
@@ -30,13 +31,12 @@ interface CliResults {
 
 const default_options: CliResults = {
 	app_name: DEFAULT_APP_NAME,
-	packages: ['sqlite', 'drizzle', 'tailwind', 'lucia', 'adapter:auto'],
+	packages: ['sqlite', 'tailwind', 'lucia', 'adapter:auto'],
 	flags: {
-		noGit: false,
-		noInstall: false,
+		no_install: false,
 		default: false,
 	},
-	// database_solution: 'sqlite',
+	database_solution: 'sqlite',
 	// css_solution: 'tailwind',
 	// auth_solution: 'lucia',
 	// adapter_solution: 'auto',
@@ -66,11 +66,6 @@ export const run_questionaire = async (): Promise<CliResults> => {
 		.argument(
 			'[dir]',
 			'The name of the application, as well as the name of the directory to create',
-		)
-		.option(
-			'--noGit',
-			'Explicitly tell the CLI to not initialize a new git repo in the project',
-			false,
 		)
 		.option(
 			'--noInstall',
@@ -148,21 +143,21 @@ export const run_questionaire = async (): Promise<CliResults> => {
 					initialValue: 'auto',
 				});
 			},
-			...(!configuration.flags.noGit && {
-				git: () => {
-					return p.confirm({
-						message: 'Should we initialize a Git repository and stage the changes?',
-						initialValue: !default_options.flags.noGit,
-					});
-				},
-			}),
-			...(!configuration.flags.noInstall && {
+			tools: () => {
+				return p.select({
+					message: 'Which additional tools would you like to use?',
+					options: hook_options,
+					initialValue: 'none',
+					maxItems: hook_options.length,
+				});
+			},
+			...(!configuration.flags.no_install && {
 				install: () => {
 					return p.confirm({
 						message:
 							`Should we run '${PKG_MANAGER}` +
 							(PKG_MANAGER === 'yarn' ? `'?` : ` install' for you?`),
-						initialValue: !default_options.flags.noInstall,
+						initialValue: !default_options.flags.no_install,
 					});
 				},
 			}),
@@ -182,23 +177,24 @@ export const run_questionaire = async (): Promise<CliResults> => {
 	if (project.adapter === 'auto') packages.push('adapter:auto');
 	if (project.auth == 'lucia') packages.push('lucia');
 	if (project.css === 'tailwind') packages.push('tailwind');
-	if (project.css === 'shadcn') packages.push('tailwind', 'shadcn');
-	if (project.css === 'bits_ui') packages.push('tailwind', 'bits_ui');
-	if (project.database === 'mysql') packages.push('mysql', 'drizzle');
-	if (project.database === 'sqlite') packages.push('sqlite', 'drizzle');
-	if (project.database === 'postgres') packages.push('postgres', 'drizzle');
+	// if (project.css === 'shadcn') packages.push('tailwind', 'shadcn');
+	// if (project.css === 'bits_ui') packages.push('tailwind', 'bits_ui');
+	if (project.database === 'mysql') packages.push('mysql');
+	if (project.database === 'sqlite') packages.push('sqlite');
+	if (project.database === 'postgres') packages.push('postgres');
+	if (project.database === 'hooks:check') packages.push('hooks:check');
+	if (project.database === 'hooks:fix') packages.push('hooks:fix');
 
 	return {
 		app_name: project.name ?? configuration.app_name,
 		packages,
-		// database_solution: project.database as DatabaseSolution,
+		database_solution: project.database as DatabaseSolution,
 		// css_solution: project.css as CssSolution,
 		// auth_solution: project.auth as AuthSolution,
 		// adapter_solution: project.adapter as AdapterSolution,
 		flags: {
 			...configuration.flags,
-			noGit: !project.git || configuration.flags.noGit,
-			noInstall: !project.install || configuration.flags.noInstall,
+			no_install: !project.install || configuration.flags.no_install,
 		},
 	};
 };

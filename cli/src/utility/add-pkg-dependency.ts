@@ -1,7 +1,7 @@
 import {
+	AvailableDependencies,
 	dependency_version_map,
-	type AvailableDependencies,
-} from '$src/installers/dependency_version_map.js';
+} from '$src/installers/dependency-version-map.js';
 import fs from 'fs-extra';
 import path from 'path';
 import sortPackageJson from 'sort-package-json';

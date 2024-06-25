@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { initialize_packages } from '$src/installers/index.js';
+import { initialize_packages } from '$src/installers/installer.js';
 import { run_questionaire } from '$src/questionaire.js';
 import { logger } from '$src/utility/logger.js';
 import { render_title } from '$src/utility/render-title.js';
@@ -14,12 +14,14 @@ type SvAppPackageJSON = PackageJson & {
 const main = async () => {
 	render_title();
 
-	const opts = await run_questionaire();
+	const {
+		app_name,
+		flags: { no_install },
+		packages,
+		database_solution,
+	} = await run_questionaire();
 
 	// TODO: Implement package installation
-
-	const use_packages = initialize_packages(opts.packages);
-
 	// TODO: Scaffold project
 
 	// TODO: Initialize configs
@@ -31,6 +33,8 @@ const main = async () => {
 	// TODO: Display success message
 
 	console.log('\n\n', JSON.stringify(opts, null, 2));
+	// Package installation
+	const use_packages = initialize_packages(packages);
 
 	process.exit(0);
 };
@@ -40,8 +44,9 @@ main().catch((err) => {
 	if (err instanceof Error) {
 		logger.error(err);
 	} else {
-		logger.error('An unknown error has occurred. Please open an issue on github with the below:');
+		logger.error('An unknown error has occurred. Please open an issue on github with the below:\n');
 		console.log(err);
+		logger.info('\nhttps://github.com/OllieJT/create-svapp/issues');
 	}
 	process.exit(1);
 });
