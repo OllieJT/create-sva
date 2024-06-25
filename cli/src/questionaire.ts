@@ -145,10 +145,16 @@ export const run_questionaire = async (): Promise<CliResults> => {
 			},
 			tools: () => {
 				return p.select({
-					message: 'Which additional tools would you like to use?',
+					message: 'Which additional dev tools would you like to use?',
 					options: hook_options,
 					initialValue: 'none',
 					maxItems: hook_options.length,
+				});
+			},
+			vscode: () => {
+				return p.confirm({
+					message: `Would you like the recommended VS Code config?`,
+					initialValue: false,
 				});
 			},
 			...(!configuration.flags.no_install && {
@@ -182,8 +188,8 @@ export const run_questionaire = async (): Promise<CliResults> => {
 	if (project.database === 'mysql') packages.push('mysql');
 	if (project.database === 'sqlite') packages.push('sqlite');
 	if (project.database === 'postgres') packages.push('postgres');
-	if (project.database === 'hooks:check') packages.push('hooks:check');
-	if (project.database === 'hooks:fix') packages.push('hooks:fix');
+	if (project.database === 'husky') packages.push('husky');
+	if (project.vscode) packages.push('vscode');
 
 	return {
 		app_name: project.name ?? configuration.app_name,

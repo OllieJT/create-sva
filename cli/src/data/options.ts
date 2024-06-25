@@ -49,27 +49,27 @@ export const adapter_options = [
 	{ value: 'cloudflare', label: 'Cloudflare' },
 ] satisfies ClackOption<AdapterSolution>[];
 
-export const hook_solutions = ['none', 'hooks:check', 'hooks:fix'] as const;
-export type HookSolution = (typeof hook_solutions)[number];
+export const dev_tool_solutions = ['none', 'husky', 'vscode'] as const;
+export type DevToolSolution = (typeof dev_tool_solutions)[number];
 export const hook_options = [
 	{ value: 'none', label: 'None' },
 	{
-		value: 'hooks:check',
+		value: 'husky',
 		label: 'Check',
-		hint: 'Automatically check your code for errors before commiting changes.',
+		hint: 'Automatically checks your code for errors BEFORE commiting changes.',
 	},
 	{
-		value: 'hooks:fix',
-		label: 'Check + Fix',
-		hint: 'Automatically check your code for errors, and fix linting before commiting changes.',
+		value: 'vscode',
+		label: 'VS Code Config',
+		hint: 'The recommended settings, and extensions in .vscode/*.',
 	},
-] satisfies ClackOption<HookSolution>[];
+] satisfies ClackOption<DevToolSolution>[];
 
 type AdapterPackages = `adapter:${AdapterSolution}`;
 type AuthPackages = Exclude<AuthSolution, 'none'>;
 type CssPackages = Exclude<CssSolution, 'none'>;
 type DatabasePackages = DatabaseSolution;
-type ToolingPackages = Exclude<HookSolution, 'none'>;
+type GitHookPackages = Exclude<DevToolSolution, 'none'>;
 
 export const available_packages = [
 	// SvelteKit adapters
@@ -91,7 +91,7 @@ export const available_packages = [
 	'postgres',
 
 	// Tooling solutions
-	'hooks:check',
-	'hooks:fix',
-] satisfies (AdapterPackages | AuthPackages | CssPackages | DatabasePackages | ToolingPackages)[];
+	'husky',
+	'vscode',
+] satisfies (AdapterPackages | AuthPackages | CssPackages | DatabasePackages | GitHookPackages)[];
 export type AvailablePackages = (typeof available_packages)[number];

@@ -6,8 +6,10 @@ import { adapter_netlify_installer } from '$src/installers/installer.adapter-net
 import { adapter_node_installer } from '$src/installers/installer.adapter-node.js';
 import { adapter_vercel_installer } from '$src/installers/installer.adapter-vercel.js';
 import { drizzle_installer } from '$src/installers/installer.drizzle.js';
+import { husky_installer } from '$src/installers/installer.husky.js';
 import { lucia_installer } from '$src/installers/installer.lucia.js';
 import { tailwind_installer } from '$src/installers/installer.tailwind.js';
+import { vscode_installer } from '$src/installers/installer.vscode.js';
 
 // Turning this into a const allows the list to be iterated over for programmatically creating prompt options
 // Should increase extensibility in the future
@@ -51,4 +53,7 @@ export const initialize_packages = (packages: AvailablePackages[]): PkgInstaller
 	mysql: { is_used: packages.includes('mysql'), installer: drizzle_installer },
 	sqlite: { is_used: packages.includes('sqlite'), installer: drizzle_installer },
 	postgres: { is_used: packages.includes('postgres'), installer: drizzle_installer },
+
+	vscode: { is_used: false, installer: vscode_installer },
+	husky: { is_used: false, installer: husky_installer },
 });

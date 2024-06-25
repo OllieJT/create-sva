@@ -38,5 +38,7 @@ export const render_next_steps = async ({
 		logger.info(`  ${pkg_manager} dev`);
 	}
 
+	// TODO: Add note about husky / check or format
+
 	logger.info(`  git commit -m "initial commit"`);
 };
