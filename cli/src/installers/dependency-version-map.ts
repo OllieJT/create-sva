@@ -55,7 +55,8 @@ export const dependency_version_map = {
 	'eslint-plugin-drizzle': '^0.2.3',
 	mysql2: '^3.9.7',
 	postgres: '^3.4.4',
-	'@libsql/client': '^0.6.0',
+	'better-sqlite3': '^11.0.0',
+	'@types/better-sqlite3': '^7.6.10',
 
 	// Auth
 	'@lucia-auth/adapter-drizzle': '^1.0.7',

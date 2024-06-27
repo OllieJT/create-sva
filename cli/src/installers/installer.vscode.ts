@@ -84,6 +84,6 @@ export const vscode_installer: Installer = ({ project_dir, packages }) => {
 	const settings_dest = path.join(project_dir, '.vscode/settings.json');
 	const settings_data = json<VsCodeSettings>(settings);
 
-	fs.writeFileSync(extensions_dest, extensions_data);
-	fs.writeFileSync(settings_dest, settings_data);
+	fs.writeFileSync(extensions_dest, extensions_data, { flag: 'w' });
+	fs.writeFileSync(settings_dest, settings_data, { flag: 'w' });
 };

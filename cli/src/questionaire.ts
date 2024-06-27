@@ -1,5 +1,5 @@
 import { CLI_DESCRIPTION, CLI_NAME, DEFAULT_APP_NAME } from '$src/data/constants.js';
-import { get_svapp_version, get_user_pkg_manager } from '$src/data/globals.js';
+import { get_user_pkg_manager } from '$src/data/get-user-pkg-manager.js';
 import {
 	AvailablePackages,
 	DatabaseSolution,
@@ -7,12 +7,14 @@ import {
 	auth_options,
 	css_options,
 	database_options,
-	hook_options,
+	dev_tool_options,
 } from '$src/data/options.js';
+import { logger } from '$src/utility/logger.js';
 import { validate_app_name } from '$src/utility/validate-app-name.js';
 import * as p from '@clack/prompts';
 import chalk from 'chalk';
 import { Command } from 'commander';
+import { get_svapp_version } from './data/get-svapp-version.js';
 
 interface CliFlags {
 	no_install: boolean; // run the package manager's install command
@@ -31,7 +33,7 @@ interface CliResults {
 
 const default_options: CliResults = {
 	app_name: DEFAULT_APP_NAME,
-	packages: ['sqlite', 'tailwind', 'lucia', 'adapter:auto'],
+	packages: ['sqlite', 'tailwind', 'lucia', 'adapter:auto', 'vscode'],
 	flags: {
 		no_install: false,
 		default: false,
@@ -89,6 +91,10 @@ export const run_questionaire = async (): Promise<CliResults> => {
 	configuration.flags = program.opts();
 
 	if (configuration.flags.default) {
+		logger.info(
+			'Using default options:\n',
+			...default_options.packages.map((pkg) => `  - ${pkg}\n`),
+		);
 		return configuration;
 	}
 
@@ -111,7 +117,7 @@ export const run_questionaire = async (): Promise<CliResults> => {
 				});
 			},
 			_: ({ results }) =>
-				results.language === 'react'
+				results.language !== 'svelte'
 					? p.note(chalk.redBright('Wrong answer, using Svelte instead'))
 					: undefined,
 			css: () => {
@@ -143,18 +149,10 @@ export const run_questionaire = async (): Promise<CliResults> => {
 					initialValue: 'auto',
 				});
 			},
-			tools: () => {
-				return p.select({
+			dev_tool: () => {
+				return p.multiselect({
 					message: 'Which additional dev tools would you like to use?',
-					options: hook_options,
-					initialValue: 'none',
-					maxItems: hook_options.length,
-				});
-			},
-			vscode: () => {
-				return p.confirm({
-					message: `Would you like the recommended VS Code config?`,
-					initialValue: false,
+					options: dev_tool_options,
 				});
 			},
 			...(!configuration.flags.no_install && {
@@ -188,8 +186,8 @@ export const run_questionaire = async (): Promise<CliResults> => {
 	if (project.database === 'mysql') packages.push('mysql');
 	if (project.database === 'sqlite') packages.push('sqlite');
 	if (project.database === 'postgres') packages.push('postgres');
-	if (project.database === 'husky') packages.push('husky');
-	if (project.vscode) packages.push('vscode');
+	if (project.dev_tool.includes('husky')) packages.push('husky');
+	if (project.dev_tool.includes('vscode')) packages.push('vscode');
 
 	return {
 		app_name: project.name ?? configuration.app_name,

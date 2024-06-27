@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { get_svapp_version } from '$src/data/globals.js';
 import { createProject } from '$src/helper/create-project.js';
 import { initialize_git } from '$src/helper/initialize-git.js';
 import { install_dependencies } from '$src/helper/install-dependencies.js';
@@ -9,15 +8,8 @@ import { run_questionaire } from '$src/questionaire.js';
 import { logger } from '$src/utility/logger.js';
 import { parse_name_and_path } from '$src/utility/parse-name-and-path.js';
 import { render_title } from '$src/utility/render-title.js';
-import fs from 'fs-extra';
-import path from 'path';
-import { type PackageJson } from 'type-fest';
-
-type SvAppPackageJSON = PackageJson & {
-	SvAppMetadata?: {
-		initVersion: string;
-	};
-};
+import { update_pkg_json } from '$src/utility/update-pkg-json.js';
+import { get_svapp_version } from './data/get-svapp-version.js';
 
 const main = async () => {
 	render_title();
@@ -43,10 +35,14 @@ const main = async () => {
 	});
 
 	// Write attributes to package.json
-	const pkg_json = fs.readJSONSync(path.join(project_dir, 'package.json')) as SvAppPackageJSON;
-	pkg_json.name = scoped_app_name;
-	pkg_json.ct3aMetadata = { initVersion: get_svapp_version() };
-	fs.writeJSONSync(path.join(project_dir, 'package.json'), pkg_json, { spaces: 2 });
+	update_pkg_json({
+		project_dir,
+		update: (pkg) => {
+			pkg.name = scoped_app_name;
+			pkg.SvAppMetadata = { initVersion: get_svapp_version() };
+			return pkg;
+		},
+	});
 
 	if (!no_install) {
 		await install_dependencies({ project_dir });
@@ -64,7 +60,7 @@ const main = async () => {
 };
 
 main().catch((err) => {
-	logger.error('Aborting installation...');
+	logger.error('\n\nAborting installation...');
 	if (err instanceof Error) {
 		logger.error(err);
 	} else {

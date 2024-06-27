@@ -7,7 +7,7 @@ import fs from 'fs-extra';
 import ora from 'ora';
 import path from 'path';
 
-// This bootstraps the base Next.js application
+// This bootstraps the base SvelteKit application
 export const scaffold_project = async ({
 	project_name,
 	project_dir,

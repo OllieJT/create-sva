@@ -1,4 +1,4 @@
-import { PackageManager } from '$src/data/globals.js';
+import { PackageManager } from '$src/data/get-user-pkg-manager.js';
 import { AvailablePackages, DatabaseSolution } from '$src/data/options.js';
 import { adapter_auto_installer } from '$src/installers/installer.adapter-auto.js';
 import { adapter_cloudflare_installer } from '$src/installers/installer.adapter-cloudflare.js';
@@ -35,25 +35,34 @@ export type PkgInstallerMap = {
 
 export const initialize_packages = (packages: AvailablePackages[]): PkgInstallerMap => ({
 	// SvelteKit adapters
-	'adapter:auto': { is_used: false, installer: adapter_auto_installer },
-	'adapter:cloudflare': { is_used: false, installer: adapter_cloudflare_installer },
-	'adapter:netlify': { is_used: false, installer: adapter_netlify_installer },
-	'adapter:node': { is_used: false, installer: adapter_node_installer },
-	'adapter:vercel': { is_used: false, installer: adapter_vercel_installer },
+	'adapter:auto': { is_used: packages.includes('adapter:auto'), installer: adapter_auto_installer },
+	'adapter:cloudflare': {
+		is_used: packages.includes('adapter:cloudflare'),
+		installer: adapter_cloudflare_installer,
+	},
+	'adapter:netlify': {
+		is_used: packages.includes('adapter:netlify'),
+		installer: adapter_netlify_installer,
+	},
+	'adapter:node': { is_used: packages.includes('adapter:node'), installer: adapter_node_installer },
+	'adapter:vercel': {
+		is_used: packages.includes('adapter:vercel'),
+		installer: adapter_vercel_installer,
+	},
 
 	// Auth solutions
-	lucia: { is_used: false, installer: lucia_installer },
+	lucia: { is_used: packages.includes('lucia'), installer: lucia_installer },
 
 	// CSS solutions
-	tailwind: { is_used: false, installer: tailwind_installer },
-	// shadcn: { is_used: false, installer: null },
-	// bits_ui: { is_used: false, installer: null },
+	tailwind: { is_used: packages.includes('tailwind'), installer: tailwind_installer },
+	// shadcn: { is_used: packages.includes('shadcn'), installer: null },
+	// bits_ui: { is_used: packages.includes('bits_ui'), installer: null },
 
 	// Database solutions
 	mysql: { is_used: packages.includes('mysql'), installer: drizzle_installer },
 	sqlite: { is_used: packages.includes('sqlite'), installer: drizzle_installer },
 	postgres: { is_used: packages.includes('postgres'), installer: drizzle_installer },
 
-	vscode: { is_used: false, installer: vscode_installer },
-	husky: { is_used: false, installer: husky_installer },
+	vscode: { is_used: packages.includes('vscode'), installer: vscode_installer },
+	husky: { is_used: packages.includes('husky'), installer: husky_installer },
 });

@@ -1,5 +1,5 @@
 import { DEFAULT_APP_NAME } from '$src/data/constants.js';
-import { get_user_pkg_manager } from '$src/data/globals.js';
+import { get_user_pkg_manager } from '$src/data/get-user-pkg-manager.js';
 import { InstallerOptions } from '$src/installers/installer.js';
 import { logger } from '$src/utility/logger.js';
 
