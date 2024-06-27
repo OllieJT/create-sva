@@ -59,6 +59,7 @@
 		"execa": "^9.3.0",
 		"fs-extra": "^11.2.0",
 		"gradient-string": "^2.0.2",
+		"just-merge": "^3.2.0",
 		"ora": "8.0.1",
 		"sort-package-json": "^2.10.0"
 	},

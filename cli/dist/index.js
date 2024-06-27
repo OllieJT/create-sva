@@ -1,1 +1,0 @@
-var r=async()=>{console.log("Hello World!"),process.exit(0)};r().catch(o=>{console.error("Critical Failure..."),o instanceof Error||console.warn("\u{1F6A7} An unknown error has occurred."),console.error(o),process.exit(1)});
