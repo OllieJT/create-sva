@@ -1,18 +1,18 @@
 {
-	"name": "@svapp/root",
+	"name": "@csa/root",
 	"version": "0.0.0",
-	"description": "Create web application with the SvApp stack",
+	"description": "Create web application with the create-sa CLI",
 	"author": "Ollie Taylor <ollie@designthen.dev> (https://designthen.dev)",
 	"maintainers": [],
 	"type": "module",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/olliejt/create-svapp.git"
+		"url": "https://github.com/olliejt/create-sa.git"
 	},
 	"keywords": [
-		"create-svapp",
-		"svapp",
+		"create-sa",
+		"Svelte App",
 		"svelte stack",
 		"svelte",
 		"tailwind",
@@ -20,21 +20,21 @@
 		"svelte auth"
 	],
 	"scripts": {
-		"build:cli": "turbo --filter=create-svapp build",
-		"build:web": "turbo --filter=@svapp/web build",
+		"build:cli": "turbo --filter=create-sa build",
+		"build:web": "turbo --filter=@csa/web build",
 		"build": "turbo build",
 		"check": "turbo lint typecheck format:check && manypkg check",
 		"clean": "turbo clean && rm -rf node_modules",
-		"dev:cli": "turbo --filter=create-svapp dev",
-		"dev:web": "turbo --filter=@svapp/web dev",
+		"dev:cli": "turbo --filter=create-sa dev",
+		"dev:web": "turbo --filter=@csa/web dev",
 		"dev": "turbo dev",
 		"format:check": "turbo format:check && prettier --check '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
 		"format": "turbo format && prettier --write '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
 		"lint:fix": "turbo lint:fix && manypkg fix",
 		"lint": "turbo lint && manypkg check",
 		"release": "changeset version",
-		"start:cli": "turbo --filter=create-svapp start",
-		"start:web": "turbo --filter=@svapp/web start",
+		"start:cli": "turbo --filter=create-sa start",
+		"start:web": "turbo --filter=@csa/web start",
 		"typecheck": "turbo typecheck",
 		"pub:beta": "cd cli && pnpm pub:beta",
 		"pub:release": "cd cli && pnpm pub:release"

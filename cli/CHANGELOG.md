@@ -1,4 +1,4 @@
-# create-svapp
+# create-sa
 
 ## 0.0.2
 

@@ -21,5 +21,5 @@ export const TITLE_TEXT = `
 `;
 export const DEFAULT_APP_NAME = 'new-svelte-app';
 
-export const CLI_NAME = 'create-svapp';
+export const CLI_NAME = 'create-sa';
 export const CLI_DESCRIPTION = 'A CLI for creating web applications with SvelteKit';
