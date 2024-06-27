@@ -23,7 +23,7 @@ export const parse_name_and_path = (rawInput: string) => {
 
 	let app_name = paths[paths.length - 1]!;
 
-	// If the user ran `npx create-svapp .` or similar, the app_name should be the current directory
+	// If the user ran `npx create-sa .` or similar, the app_name should be the current directory
 	if (app_name === '.') {
 		const parsedCwd = pathModule.resolve(process.cwd());
 		app_name = pathModule.basename(parsedCwd);

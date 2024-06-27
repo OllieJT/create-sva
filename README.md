@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://github.com/OllieJT/create-svapp/blob/setup-docs/web/static/create-sa-icon.png?raw=true" width="130" alt="Vibrant square icon with soft corners and the characters S and A.">
+ <img src="https://github.com/OllieJT/create-sa/blob/setup-docs/web/static/create-sa-icon.png?raw=true" width="130" alt="Vibrant square icon with soft corners and the characters S and A.">
 
 </p>
 
@@ -102,10 +102,10 @@ bun create sa@latest
 
 
 
-[downloads-image]: https://img.shields.io/npm/dm/create-svapp?color=364fc7&logoColor=364fc7
-[npm-url]: https://www.npmjs.com/package/create-svapp
-[npm-image]: https://img.shields.io/npm/v/create-svapp?color=0b7285&logoColor=0b7285
-[contribute-url]: https://github.com/olliejt/create-svapp/blob/main/CONTRIBUTING.md
+[downloads-image]: https://img.shields.io/npm/dm/create-sa?color=364fc7&logoColor=364fc7
+[npm-url]: https://www.npmjs.com/package/create-sa
+[npm-image]: https://img.shields.io/npm/v/create-sa?color=0b7285&logoColor=0b7285
+[contribute-url]: https://github.com/olliejt/create-sa/blob/main/CONTRIBUTING.md
 [contribute-image]: https://img.shields.io/badge/PRs-welcome-blue.svg
-[github-image]: https://img.shields.io/github/stars/olliejt/create-svapp
+[github-image]: https://img.shields.io/github/stars/olliejt/create-sa
 [discord-image]: https://img.shields.io/discord/966627436387266600?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff

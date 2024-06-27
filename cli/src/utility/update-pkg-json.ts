@@ -3,8 +3,8 @@ import path from 'path';
 import sortPackageJson from 'sort-package-json';
 import { type PackageJson } from 'type-fest';
 
-type SvAppPackageJSON = PackageJson & {
-	SvAppMetadata?: {
+type SA_PackageJSON = PackageJson & {
+	csa_metadata?: {
 		initVersion: string;
 	};
 };
@@ -14,9 +14,9 @@ export function update_pkg_json({
 	update,
 }: {
 	project_dir: string;
-	update: (pkg: SvAppPackageJSON) => SvAppPackageJSON;
+	update: (pkg: SA_PackageJSON) => SA_PackageJSON;
 }) {
-	const data_before = fs.readJSONSync(path.join(project_dir, 'package.json')) as SvAppPackageJSON;
+	const data_before = fs.readJSONSync(path.join(project_dir, 'package.json')) as SA_PackageJSON;
 	const data_after = update(data_before);
 	const data_sorted = sortPackageJson(data_after);
 
