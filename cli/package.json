@@ -1,6 +1,6 @@
 {
 	"name": "create-sa",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Create web application with the create-sa CLI",
 	"type": "module",
 	"license": "MIT",
