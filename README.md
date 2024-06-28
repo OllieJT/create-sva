@@ -1,6 +1,5 @@
 <p align="center">
  <img src="./web/static/appicon.png" width="130" alt="Vibrant square icon with soft corners and the characters S and A.">
-
 </p>
 
 <h1 align="center">
@@ -27,17 +26,17 @@
 
 The _"SVA Stack"_ is a web development stack focused on **simplicity**, **consistency**, and **full-stack typesafety**. It combines a collection of tools for interactive full-stack applications, and provides you with a CLI to scaffold your own project.
 
-| Package                                       | Usecase                                                                                                 | Default            | Optional       |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------ | -------------- |
-| [Svelte](https://svelte.dev/)                 | Framework                                                                                               | ✅ Enabled: v5     | 🚫 _Required_  |
-| [SvelteKit](https://kit.svelte.dev/)          | Meta-Framework                                                                                          | ✅ Enabled: v2     | 🚫 _Required_  |
-| [Typescript](https://www.typescriptlang.org/) | Type-Safety                                                                                             | ✅ Enabled         | 🚫 _Essential_ |
-| [Tailwind CSS](https://tailwindcss.com)       | Styling                                                                                                 | ✅ Enabled         | ✅ Yes         |
-| [Lucia](https://lucia-auth.com/)              | Auth                                                                                                    | ✅ Enabled         | ✅ Yes         |
-| [Drizzle](https://orm.drizzle.team/)          | Database Adapter<br /> <small style="opacity:0.7; font-size:0.8em;">(MySQL / Sqlite / Postgres)</small> | ✅ Enabled: Sqlite | ✅ Yes         |
-| [Husky](https://typicode.github.io/husky/)    | Auth                                                                                                    | 🚫 Disabled        | ✅ Yes         |
-| [Prettier](https://prettier.io/)              | Code Formatter                                                                                          | ✅ Enabled         | 🚫 _Essential_ |
-| [ESLint](https://eslint.org/)                 | Code Linter                                                                                             | ✅ Enabled         | 🚫 _Essential_ |
+| Package                                       | Usecase          | Default            | Optional         |
+| --------------------------------------------- | ---------------- | ------------------ | ---------------- |
+| [Svelte](https://svelte.dev/)                 | Framework        | ✅ Enabled: v5     | 🚫 _Required_    |
+| [SvelteKit](https://kit.svelte.dev/)          | Meta-Framework   | ✅ Enabled         | 🚫 _Required_    |
+| [Typescript](https://www.typescriptlang.org/) | Type-Safety      | ✅ Enabled         | 🚧 _Essential_   |
+| [Tailwind CSS](https://tailwindcss.com)       | Styling          | ✅ Enabled         | ✅ Optional      |
+| [Lucia](https://lucia-auth.com/)              | Auth             | ✅ Enabled         | ✅ Optional      |
+| [Drizzle](https://orm.drizzle.team/)          | Database Adapter | ✅ Enabled: Sqlite | ✅ Optional      |
+| [Husky](https://typicode.github.io/husky/)    | Auth             | 🚫 Disabled        | ✅ Optional      |
+| [Prettier](https://prettier.io/)              | Code Formatter   | ✅ Enabled         | 🚧 _Recommended_ |
+| [ESLint](https://eslint.org/)                 | Code Linter      | ✅ Enabled         | 🚧 _Recommended_ |
 
 > [!NOTE]
 > create-sva is heavily inspired by the [t3stack](https://github.com/t3-oss/create-t3-app/), both in the methodology, and the CLI. The first version of this project used or learnt from many aspects of the t3 codebase, and we owe a lot to it's [contributors](https://github.com/t3-oss/create-t3-app/graphs/contributors).
@@ -104,6 +103,3 @@ bun create sva@latest
 [contribute-url]: https://github.com/olliejt/create-sva/blob/main/CONTRIBUTING.md
 [contribute-image]: https://img.shields.io/badge/PRs-welcome-blue.svg
 [github-image]: https://img.shields.io/github/stars/olliejt/create-sva
-[discord-image]: https://img.shields.io/discord/966627436387266600?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff
-
-create-sacreate-sacreate-sacreate-sacreate-sacreate-sacreate-sacreate-svacreate-svacreate-svacreate-svacreate-svacreate-svacreate-sva
