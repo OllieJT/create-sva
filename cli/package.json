@@ -1,16 +1,16 @@
 {
-	"name": "create-sa",
-	"version": "0.1.1",
-	"description": "Create web application with the create-sa CLI",
+	"name": "create-sva",
+	"version": "0.1.2",
+	"description": "Create web application with the create-sva CLI",
 	"type": "module",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/olliejt/create-sa.git",
+		"url": "https://github.com/olliejt/create-sva.git",
 		"directory": "cli"
 	},
 	"keywords": [
-		"create-sa",
+		"create-sva",
 		"Svelte App",
 		"svelte stack",
 		"svelte",
@@ -20,7 +20,7 @@
 	],
 	"exports": "./dist/index.js",
 	"bin": {
-		"create-sa": "./dist/index.js"
+		"create-sva": "./dist/index.js"
 	},
 	"files": [
 		"dist",
