@@ -4,7 +4,7 @@ import sortPackageJson from 'sort-package-json';
 import { type PackageJson } from 'type-fest';
 
 type SA_PackageJSON = PackageJson & {
-	csa_metadata?: {
+	sva_metadata?: {
 		initVersion: string;
 	};
 };

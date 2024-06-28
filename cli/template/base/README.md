@@ -1,6 +1,6 @@
-# create-sa
+# create-sva
 
-Everything you need to build a Svelte project, powered by [`create-sa`](https://github.com/olliejt/create-sa).
+Everything you need to build a Svelte project, powered by [`create-sva`](https://github.com/olliejt/create-sva).
 
 ## Creating a project
 
