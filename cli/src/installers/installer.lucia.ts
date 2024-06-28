@@ -17,8 +17,8 @@ export const lucia_installer: Installer = ({ project_dir, database_solution }) =
 	add_env_variable({
 		project_dir,
 		variables: [
-			{ key: 'GITHUB_CLIENT_ID', value: 'TODO' },
-			{ key: 'GITHUB_CLIENT_SECRET', value: 'TODO' },
+			{ key: 'GITHUB_CLIENT_ID', value: '' },
+			{ key: 'GITHUB_CLIENT_SECRET', value: '' },
 		],
 	});
 

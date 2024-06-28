@@ -29,7 +29,7 @@ export const tailwind_installer: Installer = ({ project_dir }) => {
 	const postcss_config_dest = path.join(project_dir, 'postcss.config.cjs');
 
 	const css_src = path.join(source, 'src/tailwind.pcss');
-	const css_dest = path.join(project_dir, 'src/styles/app.pcss');
+	const css_dest = path.join(project_dir, 'src/app.pcss');
 
 	const prettier_path = path.join(project_dir, '.prettierrc');
 	const prettier_content = fs.readJSONSync(prettier_path) as PrettierConfig;
