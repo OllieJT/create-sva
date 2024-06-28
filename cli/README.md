@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://raw.githubusercontent.com/OllieJT/create-sva/ccc4bc0bd4983041c4a805287169888a910563b9/web/static/create-sva-icon.png" width="130" alt="Vibrant square icon with soft corners and the characters S and A.">
+ <img src="[./web/static/appicon.png](https://raw.githubusercontent.com/OllieJT/create-sva/main/web/static/appicon.png)" width="130" alt="Vibrant square icon with soft corners and the characters S and A.">
 
 </p>
 
@@ -105,3 +105,5 @@ bun create sva@latest
 [contribute-image]: https://img.shields.io/badge/PRs-welcome-blue.svg
 [github-image]: https://img.shields.io/github/stars/olliejt/create-sva
 [discord-image]: https://img.shields.io/discord/966627436387266600?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff
+
+create-sacreate-sacreate-sacreate-sacreate-sacreate-sacreate-sacreate-svacreate-svacreate-svacreate-svacreate-svacreate-svacreate-sva
