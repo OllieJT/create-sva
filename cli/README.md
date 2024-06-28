@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://github.com/OllieJT/create-sva/blob/setup-docs/web/static/create-sva-icon.png?raw=true" width="130" alt="Vibrant square icon with soft corners and the characters S and A.">
+ <img src="https://raw.githubusercontent.com/OllieJT/create-sva/ccc4bc0bd4983041c4a805287169888a910563b9/web/static/create-sva-icon.png" width="130" alt="Vibrant square icon with soft corners and the characters S and A.">
 
 </p>
 
