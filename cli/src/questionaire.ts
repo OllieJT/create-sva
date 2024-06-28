@@ -14,7 +14,7 @@ import { validate_app_name } from '$src/utility/validate-app-name.js';
 import * as p from '@clack/prompts';
 import chalk from 'chalk';
 import { Command } from 'commander';
-import { get_csa_version } from './data/get-csa-version.js';
+import { get_cli_version } from './data/get-cli-version.js';
 
 interface CliFlags {
 	no_install: boolean; // run the package manager's install command
@@ -46,7 +46,7 @@ const default_options: CliResults = {
 
 export const run_questionaire = async (): Promise<CliResults> => {
 	const configuration = default_options;
-	const CLI_VERSION = get_csa_version();
+	const CLI_VERSION = get_cli_version();
 	const PKG_MANAGER = get_user_pkg_manager();
 
 	const program = new Command();
@@ -58,7 +58,7 @@ export const run_questionaire = async (): Promise<CliResults> => {
 		.version(CLI_VERSION, '-v, --version', 'Display the version number')
 		.addHelpText(
 			'afterAll',
-			`\n The SA stack was inspired by the ${chalk
+			`\n The SVA stack was inspired by the ${chalk
 				.hex('#E8DCFF')
 				.bold('t3 stack')} and was used as a framework for this CLI. \n`,
 		);

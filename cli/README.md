@@ -1,15 +1,15 @@
 <p align="center">
- <img src="https://github.com/OllieJT/create-sa/blob/setup-docs/web/static/create-sa-icon.png?raw=true" width="130" alt="Vibrant square icon with soft corners and the characters S and A.">
+ <img src="https://github.com/OllieJT/create-sva/blob/setup-docs/web/static/create-sva-icon.png?raw=true" width="130" alt="Vibrant square icon with soft corners and the characters S and A.">
 
 </p>
 
 <h1 align="center">
-  create-sa
+  create-sva
 </h1>
 
 <p align="center">Mission: The fastest way to build interactive typesafe Svelte applications.</p>
 
-<p align="center">Get started by running <code>npm create sa@latest</code></p>
+<p align="center">Get started by running <code>npm create sva@latest</code></p>
 
 <div align="center">
 
@@ -23,9 +23,9 @@
 - <a href="#axioms">Axioms</a>
 - <a href="#getting-started">Getting Started</a>
 
-<h2 id="about">The SA Stack</h2>
+<h2 id="about">The SVA Stack</h2>
 
-The _"SA Stack"_ is a web development stack focused on **simplicity**, **consistency**, and **full-stack typesafety**. It combines a collection of tools for interactive full-stack applications, and provides you with a CLI to scaffold your own project.
+The _"SVA Stack"_ is a web development stack focused on **simplicity**, **consistency**, and **full-stack typesafety**. It combines a collection of tools for interactive full-stack applications, and provides you with a CLI to scaffold your own project.
 
 | Package                                       | Usecase                                                                                                 | Default            | Optional       |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------ | -------------- |
@@ -40,15 +40,15 @@ The _"SA Stack"_ is a web development stack focused on **simplicity**, **consist
 | [ESLint](https://eslint.org/)                 | Code Linter                                                                                             | ✅ Enabled         | 🚫 _Essential_ |
 
 > [!NOTE]
-> create-sa is heavily inspired by the [t3stack](https://github.com/t3-oss/create-t3-app/), both in the methodology, and the CLI. The first version of this project used or learnt from many aspects of the t3 codebase, and we owe a lot to it's [contributors](https://github.com/t3-oss/create-t3-app/graphs/contributors).
+> create-sva is heavily inspired by the [t3stack](https://github.com/t3-oss/create-t3-app/), both in the methodology, and the CLI. The first version of this project used or learnt from many aspects of the t3 codebase, and we owe a lot to it's [contributors](https://github.com/t3-oss/create-t3-app/graphs/contributors).
 
-### What exactly is `create-sa`?
+### What exactly is `create-sva`?
 
-`create-sa` is an interactive CLI designed to quickly scaffold a Svelte application with **sensible defaults** tailored for **interactive applications**. Unlike the standard Svelte CLI (which is fantastic for basic websites) create-sa focuses on getting setup with more complex functionality like authentication and databases.
+`create-sva` is an interactive CLI designed to quickly scaffold a Svelte application with **sensible defaults** tailored for **interactive applications**. Unlike the standard Svelte CLI (which is fantastic for basic websites) create-sva focuses on getting setup with more complex functionality like authentication and databases.
 
-The goal of `create-sa` is to streamline the setup process, providing you with a modular structure that fits your specific needs. Each piece is optional, and the project is generated based on your choices during setup.
+The goal of `create-sva` is to streamline the setup process, providing you with a modular structure that fits your specific needs. Each piece is optional, and the project is generated based on your choices during setup.
 
-SA aims to be as leightweight as possible while scaffolding projects that get you through boilerplate code as fast as possible. This means we may omit beloved packages like [superforms](https://superforms.rocks/) as it does not require project configuration.
+SVA aims to be as leightweight as possible while scaffolding projects that get you through boilerplate code as fast as possible. This means we may omit beloved packages like [superforms](https://superforms.rocks/) as it does not require project configuration.
 
 ---
 
@@ -60,7 +60,7 @@ This is an _opinionated project_ inspired by the axioms of [t3 stack](https://gi
 
 It's easy to fall into the trap of "adding everything" - we explicitly _don't_ want to do that.
 
-Everything added to `create-sa` should both address the mission, and benefit from pre-configuration. This means we **won't** add beloved packages like [superforms](https://superforms.rocks/) as it does not require much setup... but we **will** add things like [Lucia](https://lucia-auth.com/) and integrate it into [Drizzle](https://orm.drizzle.team/) for you.
+Everything added to `create-sva` should both address the mission, and benefit from pre-configuration. This means we **won't** add beloved packages like [superforms](https://superforms.rocks/) as it does not require much setup... but we **will** add things like [Lucia](https://lucia-auth.com/) and integrate it into [Drizzle](https://orm.drizzle.team/) for you.
 
 ### 2. Embrace Web Standards
 
@@ -68,7 +68,7 @@ We believe in making the most of native web features to reduce unnecessary compl
 
 ### 3. Typesafety Isn't Optional
 
-The stated goal of `create-sa` is to provide the quickest way to start a new full-stack, typesafe web application. We take typesafety seriously in these parts as it improves our productivity and helps us ship fewer bugs. Any decision that compromises the typesafe nature of `create-sa` is a decision that should be made in a different project.
+The stated goal of `create-sva` is to provide the quickest way to start a new full-stack, typesafe web application. We take typesafety seriously in these parts as it improves our productivity and helps us ship fewer bugs. Any decision that compromises the typesafe nature of `create-sva` is a decision that should be made in a different project.
 
 <h2 id="getting-started">Getting Started</h2>
 
@@ -77,31 +77,31 @@ To scaffold an app using `create-t3-app`, run any of the following four commands
 ### npm
 
 ```bash
-npm create sa@latest
+npm create sva@latest
 ```
 
 ### yarn
 
 ```bash
-yarn create sa
+yarn create sva
 ```
 
 ### pnpm
 
 ```bash
-pnpm create sa@latest
+pnpm create sva@latest
 ```
 
 ### bun
 
 ```bash
-bun create sa@latest
+bun create sva@latest
 ```
 
-[downloads-image]: https://img.shields.io/npm/dm/create-sa?color=364fc7&logoColor=364fc7
-[npm-url]: https://www.npmjs.com/package/create-sa
-[npm-image]: https://img.shields.io/npm/v/create-sa?color=0b7285&logoColor=0b7285
-[contribute-url]: https://github.com/olliejt/create-sa/blob/main/CONTRIBUTING.md
+[downloads-image]: https://img.shields.io/npm/dm/create-sva?color=364fc7&logoColor=364fc7
+[npm-url]: https://www.npmjs.com/package/create-sva
+[npm-image]: https://img.shields.io/npm/v/create-sva?color=0b7285&logoColor=0b7285
+[contribute-url]: https://github.com/olliejt/create-sva/blob/main/CONTRIBUTING.md
 [contribute-image]: https://img.shields.io/badge/PRs-welcome-blue.svg
-[github-image]: https://img.shields.io/github/stars/olliejt/create-sa
+[github-image]: https://img.shields.io/github/stars/olliejt/create-sva
 [discord-image]: https://img.shields.io/discord/966627436387266600?color=%235865F2&label=Discord&logo=discord&logoColor=%23fff
