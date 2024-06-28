@@ -1,5 +1,11 @@
 # create-sva
 
+## 0.1.3
+
+### Patch Changes
+
+- c969c9b: Improve visuals
+
 ## 0.1.2
 
 ### Patch Changes
