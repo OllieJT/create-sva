@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import "../app.pcss";
 
 	let { children } = $props();
@@ -16,7 +16,7 @@
 	<div class="background"></div>
 </div>
 
-<style>
+<style lang="postcss">
 	.app {
 		--theme-color-1: #8537d1;
 		--theme-color-2: #be3793;

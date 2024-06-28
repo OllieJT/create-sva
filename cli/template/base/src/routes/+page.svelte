@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <svelte:head>
 	<title>SVA</title>
 	<meta name="description" content="Svelte App Starter" />
