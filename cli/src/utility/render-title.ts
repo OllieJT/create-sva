@@ -9,6 +9,6 @@ const theme = {
 };
 
 export const render_title = () => {
-	const svapp_gradient = gradient(Object.values(theme));
-	console.log(svapp_gradient.multiline(TITLE_TEXT));
+	const csa_gradient = gradient(Object.values(theme));
+	console.log(csa_gradient.multiline(TITLE_TEXT));
 };

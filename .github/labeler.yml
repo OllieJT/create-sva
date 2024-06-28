@@ -1,7 +1,7 @@
 '📌 area: cli':
   - any: ['cli/**/*']
 
-'📌 area: svapp':
+'📌 area: template':
   - any: ['cli/template/**/*']
 
 '📚 documentation':

@@ -9,7 +9,7 @@ import { logger } from '$src/utility/logger.js';
 import { parse_name_and_path } from '$src/utility/parse-name-and-path.js';
 import { render_title } from '$src/utility/render-title.js';
 import { update_pkg_json } from '$src/utility/update-pkg-json.js';
-import { get_svapp_version } from './data/get-svapp-version.js';
+import { get_csa_version } from './data/get-csa-version.js';
 
 const main = async () => {
 	render_title();
@@ -39,7 +39,7 @@ const main = async () => {
 		project_dir,
 		update: (pkg) => {
 			pkg.name = scoped_app_name;
-			pkg.SvAppMetadata = { initVersion: get_svapp_version() };
+			pkg.csa_metadata = { initVersion: get_csa_version() };
 			return pkg;
 		},
 	});
@@ -66,7 +66,7 @@ main().catch((err) => {
 	} else {
 		logger.error('An unknown error has occurred. Please open an issue on github with the below:\n');
 		console.log(err);
-		logger.info('\nhttps://github.com/OllieJT/create-svapp/issues');
+		logger.info('\nhttps://github.com/OllieJT/create-sa/issues');
 	}
 	process.exit(1);
 });

@@ -1,17 +1,17 @@
 {
-	"name": "create-svapp",
-	"version": "0.1.0",
-	"description": "Create web application with the SvApp stack",
+	"name": "create-sa",
+	"version": "0.1.1",
+	"description": "Create web application with the create-sa CLI",
 	"type": "module",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/olliejt/create-svapp.git",
+		"url": "https://github.com/olliejt/create-sa.git",
 		"directory": "cli"
 	},
 	"keywords": [
-		"create-svapp",
-		"svapp",
+		"create-sa",
+		"Svelte App",
 		"svelte stack",
 		"svelte",
 		"tailwind",
@@ -20,7 +20,7 @@
 	],
 	"exports": "./dist/index.js",
 	"bin": {
-		"create-svapp": "./dist/index.js"
+		"create-sa": "./dist/index.js"
 	},
 	"files": [
 		"dist",
