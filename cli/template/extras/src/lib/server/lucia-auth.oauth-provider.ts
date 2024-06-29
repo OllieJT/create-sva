@@ -1,6 +1,6 @@
 // src/lib/server/auth.ts
-import { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from '$env/static/private';
-import { GitHub } from 'arctic';
+import { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from "$env/static/private";
+import { GitHub } from "arctic";
 
 /**
  * Oauth Providers: add new providers here
@@ -17,8 +17,8 @@ export type AuthProviderID = keyof typeof oauth_provider;
  */
 export const oauth_path_map = {
 	github: {
-		login: '/login/github',
-		callback: '/login/github/callback',
+		login: "/login/github",
+		callback: "/login/github/callback",
 	},
 } satisfies OauthPathMap;
 type OauthPathMap = {

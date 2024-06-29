@@ -1,9 +1,9 @@
 import {
 	AvailableDependencies,
 	dependency_version_map,
-} from '$src/installers/dependency-version-map.js';
-import { update_pkg_json } from '$src/utility/update-pkg-json.js';
-import sortPackageJson from 'sort-package-json';
+} from "$src/installers/dependency-version-map.js";
+import { update_pkg_json } from "$src/utility/update-pkg-json.js";
+import sortPackageJson from "sort-package-json";
 
 export const add_pkg_dependency = ({
 	dependencies,

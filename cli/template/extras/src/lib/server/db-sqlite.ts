@@ -1,8 +1,8 @@
-import { dev } from '$app/environment';
-import { DATABASE_URL } from '$env/static/private';
-import * as schema from '$lib/server/schema';
-import Database from 'better-sqlite3';
-import { drizzle } from 'drizzle-orm/better-sqlite3';
+import { dev } from "$app/environment";
+import { DATABASE_URL } from "$env/static/private";
+import * as schema from "$lib/server/schema";
+import Database from "better-sqlite3";
+import { drizzle } from "drizzle-orm/better-sqlite3";
 
 /**
  * Cache the database connection in development.

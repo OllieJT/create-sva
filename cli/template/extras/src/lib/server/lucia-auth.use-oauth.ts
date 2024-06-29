@@ -1,10 +1,10 @@
 // src/lib/server/auth.ts
-import { oauth_provider, type AuthProviderID } from '$src/lib/server/auth.oauth-provider';
-import { db } from '$src/lib/server/db';
-import { oauth_table } from '$src/lib/server/schema';
-import { error, type RequestEvent } from '@sveltejs/kit';
-import { generateState } from 'arctic';
-import { and, eq } from 'drizzle-orm';
+import { oauth_provider, type AuthProviderID } from "$src/lib/server/auth.oauth-provider";
+import { db } from "$src/lib/server/db";
+import { oauth_table } from "$src/lib/server/schema";
+import { error, type RequestEvent } from "@sveltejs/kit";
+import { generateState } from "arctic";
+import { and, eq } from "drizzle-orm";
 
 type AuthorizationCodes<Verifier extends boolean> = Verifier extends true
 	? { code: string; verifier: string }
@@ -38,11 +38,11 @@ export function use_oauth({
 			const url = await provider.createAuthorizationURL(state);
 
 			event.cookies.set(provider_key.OAUTH_STATE, state, {
-				path: '/',
+				path: "/",
 				secure: import.meta.env.PROD,
 				httpOnly: true,
 				maxAge: 60 * 10,
-				sameSite: 'lax',
+				sameSite: "lax",
 			});
 
 			return { url };
@@ -62,20 +62,20 @@ export function use_oauth({
 			with_verifier?: T;
 		}): AuthorizationCodes<T> {
 			// Code
-			const code = event.url.searchParams.get('code');
-			if (!code) throw error(400, 'No code value provided');
+			const code = event.url.searchParams.get("code");
+			if (!code) throw error(400, "No code value provided");
 
 			// State
-			const state = event.url.searchParams.get('state');
+			const state = event.url.searchParams.get("state");
 			const stored_state = event.cookies.get(provider_key.OAUTH_STATE) ?? undefined;
-			if (!state) throw error(400, 'No state value provided');
-			if (!stored_state) throw error(400, 'No stored state value provided');
-			if (state !== stored_state) throw error(400, 'State values do not match');
+			if (!state) throw error(400, "No state value provided");
+			if (!stored_state) throw error(400, "No stored state value provided");
+			if (state !== stored_state) throw error(400, "State values do not match");
 
 			// Verifier
 			const stored_verifier = event.cookies.get(provider_key.OAUTH_VERIFIER) ?? undefined;
 			if (with_verifier === true) {
-				if (!stored_verifier) throw error(400, 'No stored verifier value provided');
+				if (!stored_verifier) throw error(400, "No stored verifier value provided");
 			}
 
 			return { code, verifier: stored_verifier } as AuthorizationCodes<T>;

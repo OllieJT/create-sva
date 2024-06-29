@@ -1,6 +1,6 @@
-import type { AuthProviderID } from '$src/lib/server/auth';
-import { relations, type InferInsertModel, type InferSelectModel } from 'drizzle-orm';
-import { pgTable, primaryKey, text, timestamp } from 'drizzle-orm/pg-core';
+import type { AuthProviderID } from "$src/lib/server/auth";
+import { relations, type InferInsertModel, type InferSelectModel } from "drizzle-orm";
+import { pgTable, primaryKey, text, timestamp } from "drizzle-orm/pg-core";
 
 /*
 	You might want to seperate your schemas
@@ -9,12 +9,12 @@ import { pgTable, primaryKey, text, timestamp } from 'drizzle-orm/pg-core';
 
 /* Task */
 
-export const task_table = pgTable('task', {
-	id: text('id').primaryKey(),
-	content: text('content').notNull(),
-	topic_id: text('topic_id').references(() => topic_table.id, {
-		onDelete: 'cascade',
-		onUpdate: 'cascade',
+export const task_table = pgTable("task", {
+	id: text("id").primaryKey(),
+	content: text("content").notNull(),
+	topic_id: text("topic_id").references(() => topic_table.id, {
+		onDelete: "cascade",
+		onUpdate: "cascade",
 	}),
 });
 
@@ -30,9 +30,9 @@ export type DBInsertTask = InferInsertModel<typeof task_table>;
 
 /* Topic */
 
-export const topic_table = pgTable('topic', {
-	id: text('id').primaryKey(),
-	name: text('content').notNull(),
+export const topic_table = pgTable("topic", {
+	id: text("id").primaryKey(),
+	name: text("content").notNull(),
 });
 
 export const topic_relations = relations(topic_table, ({ many }) => ({
@@ -44,9 +44,9 @@ export type DBInsertTopic = InferInsertModel<typeof topic_table>;
 
 /* User */
 
-export const user_table = pgTable('user', {
-	id: text('id').primaryKey(),
-	display_name: text('display_name').notNull(),
+export const user_table = pgTable("user", {
+	id: text("id").primaryKey(),
+	display_name: text("display_name").notNull(),
 });
 
 export const user_relations = relations(user_table, ({ many }) => ({
@@ -59,12 +59,12 @@ export type DBInsertUser = InferInsertModel<typeof user_table>;
 
 /* Session */
 
-export const session_table = pgTable('session', {
-	id: text('id').primaryKey(),
-	userId: text('user_id')
+export const session_table = pgTable("session", {
+	id: text("id").primaryKey(),
+	userId: text("user_id")
 		.notNull()
-		.references(() => user_table.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
-	expiresAt: timestamp('expires_at', { withTimezone: true, mode: 'date' }).notNull(),
+		.references(() => user_table.id, { onDelete: "cascade", onUpdate: "cascade" }),
+	expiresAt: timestamp("expires_at", { withTimezone: true, mode: "date" }).notNull(),
 });
 
 export const session_relations = relations(session_table, ({ one }) => ({
@@ -80,13 +80,13 @@ export type DBInsertSession = InferInsertModel<typeof session_table>;
 /* OAuth */
 
 export const oauth_table = pgTable(
-	'oauth',
+	"oauth",
 	{
-		provider_id: text('provider_id').$type<AuthProviderID>().notNull(), // OAuth provider
-		provider_user_id: text('provider_user_id').notNull(), // OAuth user ID
-		user_id: text('user_id')
+		provider_id: text("provider_id").$type<AuthProviderID>().notNull(), // OAuth provider
+		provider_user_id: text("provider_user_id").notNull(), // OAuth user ID
+		user_id: text("user_id")
 			.notNull()
-			.references(() => user_table.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+			.references(() => user_table.id, { onDelete: "cascade", onUpdate: "cascade" }),
 	},
 	(table) => {
 		return {

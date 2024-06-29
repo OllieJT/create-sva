@@ -1,6 +1,6 @@
-import type { AuthProviderID } from '$src/lib/server/auth';
-import { relations, type InferInsertModel, type InferSelectModel } from 'drizzle-orm';
-import { datetime, mysqlTable, primaryKey, varchar } from 'drizzle-orm/mysql-core';
+import type { AuthProviderID } from "$src/lib/server/auth";
+import { relations, type InferInsertModel, type InferSelectModel } from "drizzle-orm";
+import { datetime, mysqlTable, primaryKey, varchar } from "drizzle-orm/mysql-core";
 
 /*
 	You might want to seperate your schemas
@@ -9,9 +9,9 @@ import { datetime, mysqlTable, primaryKey, varchar } from 'drizzle-orm/mysql-cor
 
 /* User */
 
-export const user_table = mysqlTable('user', {
-	id: varchar('id', { length: 255 }).primaryKey(),
-	display_name: varchar('display_name', { length: 255 }).notNull(),
+export const user_table = mysqlTable("user", {
+	id: varchar("id", { length: 255 }).primaryKey(),
+	display_name: varchar("display_name", { length: 255 }).notNull(),
 });
 
 export const user_relations = relations(user_table, ({ many }) => ({
@@ -24,12 +24,12 @@ export type DBInsertUser = InferInsertModel<typeof user_table>;
 
 /* Session */
 
-export const session_table = mysqlTable('session', {
-	id: varchar('id', { length: 255 }).primaryKey(),
-	userId: varchar('user_id', { length: 255 })
+export const session_table = mysqlTable("session", {
+	id: varchar("id", { length: 255 }).primaryKey(),
+	userId: varchar("user_id", { length: 255 })
 		.notNull()
-		.references(() => user_table.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
-	expiresAt: datetime('expires_at').notNull(),
+		.references(() => user_table.id, { onDelete: "cascade", onUpdate: "cascade" }),
+	expiresAt: datetime("expires_at").notNull(),
 });
 
 export const session_relations = relations(session_table, ({ one }) => ({
@@ -45,13 +45,13 @@ export type DBInsertSession = InferInsertModel<typeof session_table>;
 /* OAuth */
 
 export const oauth_table = mysqlTable(
-	'oauth',
+	"oauth",
 	{
-		provider_id: varchar('provider_id', { length: 255 }).$type<AuthProviderID>().notNull(), // OAuth provider
-		provider_user_id: varchar('provider_user_id', { length: 255 }).notNull(), // OAuth user ID
-		user_id: varchar('user_id', { length: 255 })
+		provider_id: varchar("provider_id", { length: 255 }).$type<AuthProviderID>().notNull(), // OAuth provider
+		provider_user_id: varchar("provider_user_id", { length: 255 }).notNull(), // OAuth user ID
+		user_id: varchar("user_id", { length: 255 })
 			.notNull()
-			.references(() => user_table.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+			.references(() => user_table.id, { onDelete: "cascade", onUpdate: "cascade" }),
 	},
 	(table) => {
 		return {
