@@ -1,5 +1,5 @@
-import { relations, type InferInsertModel, type InferSelectModel } from 'drizzle-orm';
-import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { relations, type InferInsertModel, type InferSelectModel } from "drizzle-orm";
+import { sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 /*
 	You might want to seperate your schemas
@@ -8,12 +8,12 @@ import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
 /* Task */
 
-export const task_table = sqliteTable('task', {
-	id: text('id').primaryKey(),
-	content: text('content').notNull(),
-	topic_id: text('topic_id').references(() => topic_table.id, {
-		onDelete: 'cascade',
-		onUpdate: 'cascade',
+export const task_table = sqliteTable("task", {
+	id: text("id").primaryKey(),
+	content: text("content").notNull(),
+	topic_id: text("topic_id").references(() => topic_table.id, {
+		onDelete: "cascade",
+		onUpdate: "cascade",
 	}),
 });
 
@@ -29,9 +29,9 @@ export type DBInsertTask = InferInsertModel<typeof task_table>;
 
 /* Topic */
 
-export const topic_table = sqliteTable('topic', {
-	id: text('id').primaryKey(),
-	name: text('content').notNull(),
+export const topic_table = sqliteTable("topic", {
+	id: text("id").primaryKey(),
+	name: text("content").notNull(),
 });
 
 export const topic_relations = relations(topic_table, ({ many }) => ({

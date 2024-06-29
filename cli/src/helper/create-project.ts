@@ -1,10 +1,10 @@
-import { get_user_pkg_manager } from '$src/data/get-user-pkg-manager.js';
-import { install_packages } from '$src/helper/install-packages.js';
-import { scaffold_project } from '$src/helper/scaffold-project.js';
-import { InstallerOptions, PkgInstallerMap } from '$src/installers/installer.js';
-import path from 'path';
+import { get_user_pkg_manager } from "$src/data/get-user-pkg-manager.js";
+import { install_packages } from "$src/helper/install-packages.js";
+import { scaffold_project } from "$src/helper/scaffold-project.js";
+import { InstallerOptions, PkgInstallerMap } from "$src/installers/installer.js";
+import path from "path";
 
-type Options = Omit<InstallerOptions, 'project_dir' | 'pkg_manager'> & {
+type Options = Omit<InstallerOptions, "project_dir" | "pkg_manager"> & {
 	packages: PkgInstallerMap;
 };
 

@@ -1,8 +1,8 @@
-import { dev } from '$app/environment';
-import { DATABASE_URL } from '$env/static/private';
-import * as schema from '$lib/server/schema';
-import { drizzle } from 'drizzle-orm/mysql2';
-import { createPool, type Pool } from 'mysql2/promise';
+import { dev } from "$app/environment";
+import { DATABASE_URL } from "$env/static/private";
+import * as schema from "$lib/server/schema";
+import { drizzle } from "drizzle-orm/mysql2";
+import { createPool, type Pool } from "mysql2/promise";
 
 /**
  * Cache the database connection in development.

@@ -1,5 +1,5 @@
-import { CLI_DESCRIPTION, CLI_NAME, DEFAULT_APP_NAME } from '$src/data/constants.js';
-import { get_user_pkg_manager } from '$src/data/get-user-pkg-manager.js';
+import { CLI_DESCRIPTION, CLI_NAME, DEFAULT_APP_NAME } from "$src/data/constants.js";
+import { get_user_pkg_manager } from "$src/data/get-user-pkg-manager.js";
 import {
 	AvailablePackages,
 	DatabaseSolution,
@@ -8,13 +8,13 @@ import {
 	css_options,
 	database_options,
 	dev_tool_options,
-} from '$src/data/options.js';
-import { logger } from '$src/utility/logger.js';
-import { validate_app_name } from '$src/utility/validate-app-name.js';
-import * as p from '@clack/prompts';
-import chalk from 'chalk';
-import { Command } from 'commander';
-import { get_cli_version } from './data/get-cli-version.js';
+} from "$src/data/options.js";
+import { logger } from "$src/utility/logger.js";
+import { validate_app_name } from "$src/utility/validate-app-name.js";
+import * as p from "@clack/prompts";
+import chalk from "chalk";
+import { Command } from "commander";
+import { get_cli_version } from "./data/get-cli-version.js";
 
 interface CliFlags {
 	no_install: boolean; // run the package manager's install command
@@ -33,12 +33,12 @@ interface CliResults {
 
 const default_options: CliResults = {
 	app_name: DEFAULT_APP_NAME,
-	packages: ['sqlite', 'tailwind', 'lucia', 'adapter:auto', 'vscode'],
+	packages: ["sqlite", "tailwind", "lucia", "adapter:auto", "vscode"],
 	flags: {
 		no_install: false,
 		default: false,
 	},
-	database_solution: 'sqlite',
+	database_solution: "sqlite",
 	// css_solution: 'tailwind',
 	// auth_solution: 'lucia',
 	// adapter_solution: 'auto',
@@ -55,28 +55,28 @@ export const run_questionaire = async (): Promise<CliResults> => {
 	program
 		.name(CLI_NAME)
 		.description(CLI_DESCRIPTION)
-		.version(CLI_VERSION, '-v, --version', 'Display the version number')
+		.version(CLI_VERSION, "-v, --version", "Display the version number")
 		.addHelpText(
-			'afterAll',
+			"afterAll",
 			`\n The SVA stack was inspired by the ${chalk
-				.hex('#E8DCFF')
-				.bold('t3 stack')} and was used as a framework for this CLI. \n`,
+				.hex("#E8DCFF")
+				.bold("t3 stack")} and was used as a framework for this CLI. \n`,
 		);
 
 	// CLI Arguments
 	program
 		.argument(
-			'[dir]',
-			'The name of the application, as well as the name of the directory to create',
+			"[dir]",
+			"The name of the application, as well as the name of the directory to create",
 		)
 		.option(
-			'--noInstall',
+			"--noInstall",
 			"Explicitly tell the CLI to not run the package manager's install command",
 			false,
 		)
 		.option(
-			'-y, --default',
-			'Bypass the CLI and use all default options to bootstrap a new t3-app',
+			"-y, --default",
+			"Bypass the CLI and use all default options to bootstrap a new t3-app",
 			false,
 		)
 		.parse(process.argv);
@@ -92,7 +92,7 @@ export const run_questionaire = async (): Promise<CliResults> => {
 
 	if (configuration.flags.default) {
 		logger.info(
-			'Using default options:\n',
+			"Using default options:\n",
 			...default_options.packages.map((pkg) => `  - ${pkg}\n`),
 		);
 		return configuration;
@@ -102,57 +102,58 @@ export const run_questionaire = async (): Promise<CliResults> => {
 		{
 			name: () =>
 				p.text({
-					message: 'What will your project be called?',
+					message: "What will your project be called?",
 					defaultValue: custom_name,
 					validate: validate_app_name,
 				}),
 			language: () => {
 				return p.select({
-					message: 'Will you be using React or Svelte?',
+					message: "Will you be using React or Svelte?",
 					options: [
-						{ value: 'react', label: 'React' },
-						{ value: 'svelte', label: 'Svelte' },
+						{ value: "react", label: "React" },
+						{ value: "svelte", label: "Svelte" },
 					],
-					initialValue: 'svelte',
+					initialValue: "svelte",
 				});
 			},
 			_: ({ results }) =>
-				results.language !== 'svelte'
-					? p.note(chalk.redBright('Wrong answer, using Svelte instead'))
+				results.language !== "svelte"
+					? p.note(chalk.redBright("Wrong answer, using Svelte instead"))
 					: undefined,
 			css: () => {
 				return p.select({
-					message: 'What styling solution would you like to use?',
+					message: "What styling solution would you like to use?",
 					options: css_options,
-					initialValue: 'tailwind',
+					initialValue: "tailwind",
 				});
 			},
 			database: () => {
 				return p.select({
-					message: 'What database type would you like to use?',
+					message: "What database type would you like to use?",
 					options: database_options,
-					initialValue: 'sqlite',
+					initialValue: "sqlite",
 				});
 			},
 			auth: ({ results }) =>
-				results.database !== 'none'
+				results.database !== "none"
 					? p.select({
-							message: 'What authentication provider would you like to use?',
+							message: "What authentication provider would you like to use?",
 							options: auth_options,
-							initialValue: 'lucia',
+							initialValue: "lucia",
 						})
 					: undefined,
 			adapter: () => {
 				return p.select({
-					message: 'What adapter would you like to use?',
+					message: "What adapter would you like to use?",
 					options: adapter_options,
-					initialValue: 'auto',
+					initialValue: "auto",
 				});
 			},
 			dev_tool: () => {
 				return p.multiselect({
-					message: 'Which additional dev tools would you like to use?',
+					message: "Which additional dev tools would you like to use?",
 					options: dev_tool_options,
+					required: false,
 				});
 			},
 			...(!configuration.flags.no_install && {
@@ -160,7 +161,7 @@ export const run_questionaire = async (): Promise<CliResults> => {
 					return p.confirm({
 						message:
 							`Should we run '${PKG_MANAGER}` +
-							(PKG_MANAGER === 'yarn' ? `'?` : ` install' for you?`),
+							(PKG_MANAGER === "yarn" ? `'?` : ` install' for you?`),
 						initialValue: !default_options.flags.no_install,
 					});
 				},
@@ -174,20 +175,20 @@ export const run_questionaire = async (): Promise<CliResults> => {
 	);
 
 	const packages: AvailablePackages[] = [];
-	if (project.adapter === 'node') packages.push('adapter:node');
-	if (project.adapter === 'vercel') packages.push('adapter:vercel');
-	if (project.adapter === 'netlify') packages.push('adapter:netlify');
-	if (project.adapter === 'cloudflare') packages.push('adapter:cloudflare');
-	if (project.adapter === 'auto') packages.push('adapter:auto');
-	if (project.auth == 'lucia') packages.push('lucia');
-	if (project.css === 'tailwind') packages.push('tailwind');
+	if (project.adapter === "node") packages.push("adapter:node");
+	if (project.adapter === "vercel") packages.push("adapter:vercel");
+	if (project.adapter === "netlify") packages.push("adapter:netlify");
+	if (project.adapter === "cloudflare") packages.push("adapter:cloudflare");
+	if (project.adapter === "auto") packages.push("adapter:auto");
+	if (project.auth == "lucia") packages.push("lucia");
+	if (project.css === "tailwind") packages.push("tailwind");
 	// if (project.css === 'shadcn') packages.push('tailwind', 'shadcn');
 	// if (project.css === 'bits_ui') packages.push('tailwind', 'bits_ui');
-	if (project.database === 'mysql') packages.push('mysql');
-	if (project.database === 'sqlite') packages.push('sqlite');
-	if (project.database === 'postgres') packages.push('postgres');
-	if (project.dev_tool.includes('husky')) packages.push('husky');
-	if (project.dev_tool.includes('vscode')) packages.push('vscode');
+	if (project.database === "mysql") packages.push("mysql");
+	if (project.database === "sqlite") packages.push("sqlite");
+	if (project.database === "postgres") packages.push("postgres");
+	if (project.dev_tool.includes("husky")) packages.push("husky");
+	if (project.dev_tool.includes("vscode")) packages.push("vscode");
 
 	return {
 		app_name: project.name ?? configuration.app_name,
