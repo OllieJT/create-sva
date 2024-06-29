@@ -153,6 +153,7 @@ export const run_questionaire = async (): Promise<CliResults> => {
 				return p.multiselect({
 					message: "Which additional dev tools would you like to use?",
 					options: dev_tool_options,
+					required: false,
 				});
 			},
 			...(!configuration.flags.no_install && {
