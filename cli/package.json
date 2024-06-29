@@ -33,6 +33,7 @@
 	],
 	"scripts": {
 		"typecheck": "tsc --noEmit",
+		"build:css": "npx tailwind -i ./template/extras/src/tailwind.pcss -o ./template/base/src/app.pcss",
 		"build": "tsup",
 		"dev": "tsup --watch",
 		"clean": "rm -rf dist .turbo node_modules",

@@ -1,8 +1,12 @@
 {
 	"$schema": "https://turbo.build/schema.json",
 	"tasks": {
+		"build:css": {
+			"dependsOn": ["^build:css"],
+			"outputs": ["temlpate/**.pcss", "temlpate/**.css"]
+		},
 		"build": {
-			"dependsOn": ["^build"],
+			"dependsOn": ["build:css", "^build"],
 			"outputs": ["dist/**", ".svelte-kit/**", ".vercel/**"]
 		},
 		"dev": {
