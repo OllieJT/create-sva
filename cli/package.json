@@ -34,6 +34,7 @@
 	"scripts": {
 		"typecheck": "tsc --noEmit",
 		"build:css": "npx tailwind -i ./template/extras/src/tailwind.pcss -o ./template/base/src/app.pcss",
+		"build:readme": "cp -f ../README.md ./",
 		"build": "tsup",
 		"dev": "tsup --watch",
 		"clean": "rm -rf dist .turbo node_modules",
