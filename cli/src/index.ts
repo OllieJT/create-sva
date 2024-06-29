@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { createProject } from "$src/helper/create-project.js";
 import { initialize_git } from "$src/helper/initialize-git.js";
+import { initialize_husky } from "$src/helper/initialize-husky.js";
 import { install_dependencies } from "$src/helper/install-dependencies.js";
 import { render_next_steps } from "$src/helper/render-next-steps.js";
 import { initialize_packages } from "$src/installers/installer.js";
@@ -49,6 +50,10 @@ const main = async () => {
 	}
 
 	await initialize_git({ project_dir });
+
+	if (packages.includes("husky")) {
+		await initialize_husky({ project_dir });
+	}
 
 	await render_next_steps({
 		database_solution,

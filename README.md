@@ -24,6 +24,7 @@
 - <a href="#about">About</a>
 - <a href="#axioms">Axioms</a>
 - <a href="#getting-started">Getting Started</a>
+- <a href="https://sva.canny.io/feature-requests" target="_blank">Feature Request</a>
 
 <h2 id="about">The SVA Stack</h2>
 
