@@ -5,9 +5,13 @@
 			"dependsOn": ["^build:css"],
 			"outputs": ["temlpate/**.pcss", "temlpate/**.css"]
 		},
+		"build:readme": {
+			"dependsOn": ["^build:readme"],
+			"outputs": ["README.md"]
+		},
 		"build": {
-			"dependsOn": ["build:css", "^build"],
-			"outputs": ["dist/**", ".svelte-kit/**", ".vercel/**"]
+			"dependsOn": ["build:css", "build:readme", "^build"],
+			"outputs": ["dist/**", ".svelte-kit/**", ".vercel/**", "./README.md"]
 		},
 		"dev": {
 			"cache": false,
