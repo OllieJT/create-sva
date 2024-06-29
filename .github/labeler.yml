@@ -1,12 +1,12 @@
-'📌 area: cli':
-  - any: ['cli/**/*']
+"📌 area: cli":
+  - any: ["cli/**/*"]
 
-'📌 area: template':
-  - any: ['cli/template/**/*']
+"📌 area: template":
+  - any: ["cli/template/**/*"]
 
-'📚 documentation':
-  - any: ['www/**/*']
-  - any: ['**/*.md']
+"📚 documentation":
+  - any: ["web/**/*"]
+  - any: ["**/*.md"]
 
-'📌 area: ci':
-  - any: ['.github/**/*']
+"📌 area: ci":
+  - any: [".github/**/*"]

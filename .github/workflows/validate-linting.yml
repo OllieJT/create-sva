@@ -5,7 +5,7 @@ name: Lint and Validate PR
 
 on:
   pull_request:
-    branches: ['*']
+    branches: ["*"]
   merge_group:
 
 env:
@@ -73,7 +73,7 @@ jobs:
 
       - run: pnpm typecheck
 
-  build-www:
+  build-web:
     runs-on: ubuntu-latest
     name: Build and Check Docs
     steps:
@@ -82,7 +82,7 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup
 
-      - run: pnpm run --filter=www check
-      - run: pnpm turbo --filter=www build
+      - run: pnpm run --filter=web check
+      - run: pnpm turbo --filter=web build
         # env:
         #   PUBLIC_GITHUB_TOKEN: ${{ secrets.PUBLIC_GITHUB_TOKEN }}
