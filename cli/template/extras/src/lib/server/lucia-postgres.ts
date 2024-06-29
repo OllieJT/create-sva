@@ -1,12 +1,12 @@
 // src/lib/server/auth.ts
-import { dev } from '$app/environment';
-import { session_table, user_table, type DBSelectUser } from '$lib/server/schema';
-import { db } from '$src/lib/server/db';
-import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
-import { Lucia } from 'lucia';
-export * from './auth.create-session';
-export * from './auth.oauth-provider';
-export * from './auth.use-oauth';
+import { dev } from "$app/environment";
+import { session_table, user_table, type DBSelectUser } from "$lib/server/schema";
+import { db } from "$src/lib/server/db";
+import { DrizzlePostgreSQLAdapter } from "@lucia-auth/adapter-drizzle";
+import { Lucia } from "lucia";
+export * from "./auth.create-session";
+export * from "./auth.oauth-provider";
+export * from "./auth.use-oauth";
 
 const adapter = new DrizzlePostgreSQLAdapter(db, session_table, user_table);
 export const lucia = new Lucia(adapter, {
@@ -24,7 +24,7 @@ export const lucia = new Lucia(adapter, {
 	},
 });
 
-declare module 'lucia' {
+declare module "lucia" {
 	interface Register {
 		Lucia: typeof lucia;
 		DatabaseUserAttributes: DBSelectUser;

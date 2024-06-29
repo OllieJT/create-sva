@@ -21,6 +21,7 @@
 	],
 	"scripts": {
 		"build:cli": "turbo --filter=create-sva build",
+		"build:css": "turbo --filter=create-sva build:css",
 		"build:web": "turbo --filter=@sva/web build",
 		"build": "turbo build",
 		"check": "turbo lint typecheck format:check && manypkg check",
