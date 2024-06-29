@@ -6,7 +6,10 @@
   create-sva
 </h1>
 
-<p align="center">Mission: The fastest way to build interactive typesafe Svelte applications.</p>
+<p align="center">
+  SVA reduces time spent on boilerplate and project setup.<br />
+  It aims to be the fastest way to build interactive typesafe Svelte applications.
+</p>
 
 <p align="center">Get started by running <code>npm create sva@latest</code></p>
 
@@ -26,17 +29,17 @@
 
 The _"SVA Stack"_ is a web development stack focused on **simplicity**, **consistency**, and **full-stack typesafety**. It combines a collection of tools for interactive full-stack applications, and provides you with a CLI to scaffold your own project.
 
-| Package                                       | Usecase          | Default            | Optional         |
-| --------------------------------------------- | ---------------- | ------------------ | ---------------- |
-| [Svelte](https://svelte.dev/)                 | Framework        | ✅ Enabled: v5     | 🚫 _Required_    |
-| [SvelteKit](https://kit.svelte.dev/)          | Meta-Framework   | ✅ Enabled         | 🚫 _Required_    |
-| [Typescript](https://www.typescriptlang.org/) | Type-Safety      | ✅ Enabled         | 🚧 _Essential_   |
-| [Tailwind CSS](https://tailwindcss.com)       | Styling          | ✅ Enabled         | ✅ Optional      |
-| [Lucia](https://lucia-auth.com/)              | Auth             | ✅ Enabled         | ✅ Optional      |
-| [Drizzle](https://orm.drizzle.team/)          | Database Adapter | ✅ Enabled: Sqlite | ✅ Optional      |
-| [Husky](https://typicode.github.io/husky/)    | Auth             | 🚫 Disabled        | ✅ Optional      |
-| [Prettier](https://prettier.io/)              | Code Formatter   | ✅ Enabled         | 🚧 _Recommended_ |
-| [ESLint](https://eslint.org/)                 | Code Linter      | ✅ Enabled         | 🚧 _Recommended_ |
+| Package                                       | Usecase          | Options        |
+| --------------------------------------------- | ---------------- | -------------- |
+| [Svelte V5](https://svelte.dev/)              | Framework        | 🚫 _Required_  |
+| [SvelteKit](https://kit.svelte.dev/)          | Meta-Framework   | 🚫 _Required_  |
+| [Typescript](https://www.typescriptlang.org/) | Type-Safety      | 🚫 _Required_  |
+| [Prettier](https://prettier.io/)              | Code Formatter   | 🚧 _Removable_ |
+| [ESLint](https://eslint.org/)                 | Code Linter      | 🚧 _Removable_ |
+| [Tailwind CSS](https://tailwindcss.com)       | Styling          | 💠 Recommended |
+| [Lucia](https://lucia-auth.com/)              | Auth             | 💠 Recommended |
+| [Drizzle](https://orm.drizzle.team/)          | Database Adapter | 💠 Recommended |
+| [Husky](https://typicode.github.io/husky/)    | Auth             | 💠 Optional    |
 
 > [!NOTE]
 > create-sva is heavily inspired by the [t3stack](https://github.com/t3-oss/create-t3-app/), both in the methodology, and the CLI. The first version of this project used or learnt from many aspects of the t3 codebase, and we owe a lot to it's [contributors](https://github.com/t3-oss/create-t3-app/graphs/contributors).
@@ -48,6 +51,14 @@ The _"SVA Stack"_ is a web development stack focused on **simplicity**, **consis
 The goal of `create-sva` is to streamline the setup process, providing you with a modular structure that fits your specific needs. Each piece is optional, and the project is generated based on your choices during setup.
 
 SVA aims to be as leightweight as possible while scaffolding projects that get you through boilerplate code as fast as possible. This means we may omit beloved packages like [superforms](https://superforms.rocks/) as it does not require project configuration.
+
+| CLI Prompt        | Type         | Options                                     | Default        |
+| ----------------- | ------------ | ------------------------------------------- | -------------- |
+| Project Name      | Text         | Text Input                                  | new-svelte-app |
+| Styling Solution  | Select       | Post CSS / **Tailwind**                     | Tailwind       |
+| Auth Solution     | Select       | None / Lucia                                | Lucia          |
+| SvelteKit Adapter | Select       | Auto / Node / Vercel / Netlify / Cloudflare | Auto           |
+| Dev Tools         | Multi-Select | Husky / CS Code Config                      | [ ]            |
 
 ---
 
