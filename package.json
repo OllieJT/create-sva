@@ -39,8 +39,7 @@
 		"start:web": "turbo --filter=@sva/web start",
 		"typecheck": "turbo typecheck",
 		"pub:beta": "cd cli && pnpm pub:beta",
-		"pub:release": "cd cli && pnpm pub:release",
-		"changeset": "changeset add"
+		"pub:release": "cd cli && pnpm pub:release"
 	},
 	"packageManager": "pnpm@8.15.6",
 	"engines": {
