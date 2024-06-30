@@ -1,6 +1,6 @@
 {
 	"name": "create-sva",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"description": "Create web application with the create-sva CLI",
 	"type": "module",
 	"license": "MIT",

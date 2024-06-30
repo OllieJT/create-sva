@@ -2,7 +2,9 @@ import { get_user_pkg_manager } from "$src/data/get-user-pkg-manager.js";
 import { logger } from "$src/utility/logger.js";
 import chalk from "chalk";
 import { execa } from "execa";
+import fs from "fs-extra";
 import ora from "ora";
+import path from "path";
 
 // This initializes Husky Hooks for the project
 export const initialize_husky = async ({ project_dir }: { project_dir: string }) => {
@@ -19,6 +21,13 @@ export const initialize_husky = async ({ project_dir }: { project_dir: string })
 		} else {
 			await execa("npx", ["husky", "init"], { cwd: project_dir });
 		}
+
+		// Set default pre-commit hook
+		const husky_hook = path.join(project_dir, ".husky/pre-commit");
+		const husky_hook_content = `npx lint-staged\n`;
+
+		// Write hook content to file
+		fs.writeFileSync(husky_hook, husky_hook_content);
 
 		spinner.succeed(`${chalk.green("Successfully initialized")} ${chalk.green.bold("husky")}\n`);
 	} catch (error) {

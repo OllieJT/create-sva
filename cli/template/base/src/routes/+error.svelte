@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { page } from "$app/stores";
 	import * as SVA from "$lib/sva";
-
-	$page.error?.message;
 </script>
 
 <svelte:head>
