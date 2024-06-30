@@ -3,7 +3,10 @@ import fs from "fs-extra";
 import merge from "just-merge";
 import path from "path";
 
-type VsCodeExtension = string[];
+type VsCodeExtensions = {
+	recommendations: string[];
+	unwantedRecommendations?: string[];
+};
 
 type VsCodeSettings = {
 	[key: string]: VsCodeSettings | string | boolean | string[];
@@ -12,7 +15,7 @@ type VsCodeSettings = {
 const json = <T extends object | []>(s: T) => JSON.stringify(s, null, "\t");
 
 export const vscode_installer: Installer = ({ project_dir, packages }) => {
-	const extensions: VsCodeExtension = [
+	const extensions: string[] = [
 		"aaron-bond.better-comments",
 		"esbenp.prettier-vscode",
 		"mikestead.dotenv",
@@ -79,7 +82,7 @@ export const vscode_installer: Installer = ({ project_dir, packages }) => {
 	}
 
 	const extensions_dest = path.join(project_dir, ".vscode/extensions.json");
-	const extensions_data = json<VsCodeExtension>(extensions);
+	const extensions_data = json<VsCodeExtensions>({ recommendations: extensions });
 
 	const settings_dest = path.join(project_dir, ".vscode/settings.json");
 	const settings_data = json<VsCodeSettings>(settings);
