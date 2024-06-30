@@ -6,13 +6,12 @@ declare global {
 			user: import("lucia").User | null;
 			session: import("lucia").Session | null;
 		}
-
-		// interface Error {}
-
+		interface Error {
+			title: string;
+			message: string;
+		}
 		// interface PageData {}
-
 		// interface PageState {}
-
 		// interface Platform {}
 	}
 }

@@ -63,19 +63,44 @@ export function use_oauth({
 		}): AuthorizationCodes<T> {
 			// Code
 			const code = event.url.searchParams.get("code");
-			if (!code) throw error(400, "No code value provided");
+			if (!code) {
+				throw error(400, {
+					title: "No code value provided",
+					message: "Reload, and try loging in again.",
+				});
+			}
 
 			// State
 			const state = event.url.searchParams.get("state");
 			const stored_state = event.cookies.get(provider_key.OAUTH_STATE) ?? undefined;
-			if (!state) throw error(400, "No state value provided");
-			if (!stored_state) throw error(400, "No stored state value provided");
-			if (state !== stored_state) throw error(400, "State values do not match");
+			if (!state) {
+				throw error(400, {
+					title: "No state value provided",
+					message: "Reload, and try loging in again.",
+				});
+			}
+			if (!stored_state) {
+				throw error(400, {
+					title: "No stored state value provided",
+					message: "Reload, and try loging in again.",
+				});
+			}
+			if (state !== stored_state) {
+				throw error(400, {
+					title: "State values do not match",
+					message: "Reload, and try loging in again.",
+				});
+			}
 
 			// Verifier
 			const stored_verifier = event.cookies.get(provider_key.OAUTH_VERIFIER) ?? undefined;
 			if (with_verifier === true) {
-				if (!stored_verifier) throw error(400, "No stored verifier value provided");
+				if (!stored_verifier) {
+					throw error(400, {
+						title: "No stored verifier value provided",
+						message: "Reload, and try loging in again.",
+					});
+				}
 			}
 
 			return { code, verifier: stored_verifier } as AuthorizationCodes<T>;
