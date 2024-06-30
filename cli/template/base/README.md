@@ -2,17 +2,19 @@
 
 Everything you need to build a Svelte project, powered by [`create-sva`](https://github.com/olliejt/create-sva).
 
-## Creating a project
+## Docs
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+| Package                                       | Usecase          |
+| --------------------------------------------- | ---------------- |
+| [Svelte V5](https://svelte.dev/)              | Framework        |
+| [SvelteKit](https://kit.svelte.dev/)          | Meta-Framework   |
+| [Typescript](https://www.typescriptlang.org/) | Type-Safety      |
+| [Prettier](https://prettier.io/)              | Code Formatter   |
+| [ESLint](https://eslint.org/)                 | Code Linter      |
+| [Tailwind CSS](https://tailwindcss.com)       | Styling          |
+| [Lucia](https://lucia-auth.com/)              | Auth             |
+| [Drizzle](https://orm.drizzle.team/)          | Database Adapter |
+| [Husky](https://typicode.github.io/husky/)    | Auth             |
 
 ## Developing
 
