@@ -1,5 +1,12 @@
 # create-sva
 
+## 0.1.7
+
+- Adds recommended SvelteKit Error typings
+- Manually adds missing changesets
+
+### Patch Changes
+
 ## 0.1.6
 
 ### Patch Changes
