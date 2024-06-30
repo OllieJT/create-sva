@@ -1,5 +1,5 @@
 <p align="center">
- <img src="./web/static/appicon.png" width="130" alt="Vibrant square icon with soft corners and the characters S and A.">
+ <img src="https://github.com/OllieJT/create-sva/blob/main/web/static/appicon.png?raw=true" width="130" alt="Vibrant square icon with soft corners and the characters S and A.">
 </p>
 
 <h1 align="center">
@@ -24,6 +24,7 @@
 - <a href="#about">About</a>
 - <a href="#axioms">Axioms</a>
 - <a href="#getting-started">Getting Started</a>
+- <a href="https://sva.canny.io/feature-requests" target="_blank">Feature Request</a>
 
 <h2 id="about">The SVA Stack</h2>
 

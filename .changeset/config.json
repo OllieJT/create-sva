@@ -1,12 +1,12 @@
 {
 	"$schema": "https://unpkg.com/@changesets/config@3.0.1/schema.json",
-	"changelog": ["@changesets/cli/changelog", { "repo": "olliejt/create-sva" }],
-	"commit": false,
-	"fixed": [],
-	"linked": [],
 	"access": "public",
 	"baseBranch": "main",
-	"updateInternalDependencies": "patch",
+	"changedFilePatterns": ["src/**", "template/**"],
+	"changelog": ["@changesets/changelog-github", { "repo": "olliejt/create-sva" }],
+	"commit": false,
+	"fixed": [],
 	"ignore": ["@sva/web"],
-	"changedFilePatterns": ["src/**", "template/**"]
+	"linked": [],
+	"updateInternalDependencies": "patch"
 }
