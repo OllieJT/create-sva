@@ -13,7 +13,7 @@ export default {
 		},
 	},
 	plugins: [
-		plugin(function ({ addVariant, addUtilities }) {
+		plugin(function ({ addVariant }) {
 			addVariant("current", ["&.current"]);
 			addVariant("not-current", ["&:not(.current)"]);
 		}),

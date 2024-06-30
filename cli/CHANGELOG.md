@@ -1,5 +1,25 @@
 # create-sva
 
+## 0.1.6
+
+### Patch Changes
+
+- fix oauth login redirect url - thanks @hewliyang
+- Correct CLI title text
+- Fixes husky setup
+
+## 0.1.5
+
+### Patch Changes
+
+- Corrects Svelte version from 4 to 5
+- Refactor initial UI
+- Fixes tailwind styles file location
+- Fixes optional dev tool select (was required to select at least one)
+- Fixes inconsistent prettier configs
+- Adds basic starter UI
+- Fix Lucia Login URL
+
 ## 0.1.4
 
 ### Patch Changes
@@ -20,6 +40,18 @@
 ### Patch Changes
 
 - 2d23ffa: Renaming from create-sa to create-sva because of NPM restrictions
+
+## 0.1.1
+
+### Patch Changes
+
+- Rename package from create-svapp to create-sa
+
+## 0.1.0
+
+### Minor Changes
+
+- Correctly installs and configures CLI options
 
 ## 0.0.2
 
