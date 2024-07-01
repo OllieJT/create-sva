@@ -1,4 +1,4 @@
-import { PackageManager, get_user_pkg_manager } from "$src/data/get-user-pkg-manager.js";
+import { get_user_pkg_manager, type PackageManager } from "$src/data/get-user-pkg-manager.js";
 import { logger } from "$src/utility/logger.js";
 import chalk from "chalk";
 import { execa, type StdoutStderrOption } from "execa";

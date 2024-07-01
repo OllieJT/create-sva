@@ -1,5 +1,5 @@
 import { PKG_ROOT } from "$src/data/constants.js";
-import { InstallerOptions } from "$src/installers/installer.js";
+import type { InstallerOptions } from "$src/installers/installer.js";
 import { logger } from "$src/utility/logger.js";
 import * as p from "@clack/prompts";
 import chalk from "chalk";

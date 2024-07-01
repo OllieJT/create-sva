@@ -11,7 +11,7 @@ const is_git_installed = (dir: string): boolean => {
 	try {
 		execSync("git --version", { cwd: dir });
 		return true;
-	} catch (_e) {
+	} catch {
 		return false;
 	}
 };
@@ -30,7 +30,7 @@ const is_inside_git_repo = async (dir: string): Promise<boolean> => {
 			stdout: "ignore",
 		});
 		return true;
-	} catch (_e) {
+	} catch {
 		// Else, it will throw a git-error and we return false
 		return false;
 	}
@@ -120,7 +120,7 @@ export const initialize_git = async ({ project_dir }: { project_dir: string }) =
 		spinner.succeed(
 			`${chalk.green("Successfully initialized and staged")} ${chalk.green.bold("git")}\n`,
 		);
-	} catch (error) {
+	} catch {
 		// Safeguard, should be unreachable
 		spinner.fail(
 			`${chalk.bold.red("Failed:")} could not initialize git. Update git to the latest version!\n`,

@@ -1,4 +1,4 @@
-import { InstallerOptions, PkgInstallerMap } from "$src/installers/installer.js";
+import type { InstallerOptions, PkgInstallerMap } from "$src/installers/installer.js";
 import { logger } from "$src/utility/logger.js";
 import chalk from "chalk";
 import ora from "ora";

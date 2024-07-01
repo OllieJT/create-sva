@@ -1,4 +1,4 @@
-import { ClackOption } from "$src/data/types.js";
+import type { ClackOption } from "$src/data/types.js";
 
 // FEAT: Add Auth.JS support
 // FEAT: Add Supabase.Auth

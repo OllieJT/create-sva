@@ -1,4 +1,4 @@
-import { ClackOption } from "$src/data/types.js";
+import type { ClackOption } from "$src/data/types.js";
 
 export const css_solutions = ["none", "tailwind", "shadcn", "bits_ui"] as const;
 export type CssSolution = (typeof css_solutions)[number];

@@ -1,5 +1,5 @@
 import {
-	AvailableDependencies,
+	type AvailableDependencies,
 	dependency_version_map,
 } from "$src/installers/dependency-version-map.js";
 import { update_pkg_json } from "$src/utility/update-pkg-json.js";

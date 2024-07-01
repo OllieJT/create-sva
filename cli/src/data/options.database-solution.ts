@@ -1,4 +1,4 @@
-import { ClackOption } from "$src/data/types.js";
+import type { ClackOption } from "$src/data/types.js";
 
 // FEAT: Add Supabase.DB support
 export const database_solutions = ["mysql", "sqlite", "postgres"] as const;
