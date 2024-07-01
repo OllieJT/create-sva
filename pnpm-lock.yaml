@@ -24,7 +24,7 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1
       '@types/eslint':
-        specifier: ^8.56.7
+        specifier: ^8.56.10
         version: 8.56.10
       '@types/eslint-config-prettier':
         specifier: ^6.11.3
@@ -33,7 +33,7 @@ importers:
         specifier: ^8.42.3
         version: 8.42.3
       '@types/node':
-        specifier: ^20.12.12
+        specifier: ^20.14.9
         version: 20.14.9
       eslint:
         specifier: ^9.6.0
@@ -42,7 +42,7 @@ importers:
         specifier: ^9.1.0
         version: 9.1.0(eslint@9.6.0)
       eslint-plugin-svelte:
-        specifier: ^2.36.0
+        specifier: ^2.41.0
         version: 2.41.0(eslint@9.6.0)(svelte@5.0.0-next.166)
       globals:
         specifier: ^15.7.0
@@ -57,11 +57,11 @@ importers:
         specifier: ^2.0.6
         version: 2.0.6
       typescript:
-        specifier: ^5.4.5
-        version: 5.5.2
+        specifier: ^5.5.3
+        version: 5.5.3
       typescript-eslint:
         specifier: ^8.0.0-alpha.20
-        version: 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2)
+        version: 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)
 
   cli:
     dependencies:
@@ -106,7 +106,7 @@ importers:
         specifier: ^1.1.6
         version: 1.1.6
       '@types/node':
-        specifier: ^20.12.12
+        specifier: ^20.14.9
         version: 20.14.9
       prettier:
         specifier: ^3.3.2
@@ -122,13 +122,13 @@ importers:
         version: 3.4.4
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.38)(typescript@5.5.2)
+        version: 8.1.0(postcss@8.4.38)(typescript@5.5.3)
       type-fest:
         specifier: ^4.20.1
         version: 4.20.1
       typescript:
-        specifier: ^5.4.5
-        version: 5.5.2
+        specifier: ^5.5.3
+        version: 5.5.3
 
   web:
     devDependencies:
@@ -154,7 +154,7 @@ importers:
         specifier: ^0.5.10
         version: 0.5.13(tailwindcss@3.4.4)
       '@types/eslint':
-        specifier: ^8.56.7
+        specifier: ^8.56.10
         version: 8.56.10
       eslint:
         specifier: ^9.6.0
@@ -163,7 +163,7 @@ importers:
         specifier: ^9.1.0
         version: 9.1.0(eslint@9.6.0)
       eslint-plugin-svelte:
-        specifier: ^2.36.0
+        specifier: ^2.41.0
         version: 2.41.0(eslint@9.6.0)(svelte@5.0.0-next.166)
       globals:
         specifier: ^15.7.0
@@ -193,11 +193,11 @@ importers:
         specifier: ^2.6.3
         version: 2.6.3
       typescript:
-        specifier: ^5.4.5
-        version: 5.5.2
+        specifier: ^5.5.3
+        version: 5.5.3
       typescript-eslint:
         specifier: ^8.0.0-alpha.20
-        version: 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2)
+        version: 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)
       vite:
         specifier: ^5.3.1
         version: 5.3.2(@types/node@20.14.9)
@@ -2663,8 +2663,8 @@ packages:
       typescript:
         optional: true
 
-  typescript@5.5.2:
-    resolution: {integrity: sha512-NcRtPEOsPFFWjobJEtfihkLCZCXZt/os3zf8nTxjVH3RvTSxjrCamJpbExGvYOF+tFHc3pA65qpdwPbzjohhew==}
+  typescript@5.5.3:
+    resolution: {integrity: sha512-/hreyEujaB0w76zKo6717l3L0o/qEUtRgdvUBvlkhoWeOVMjMuHNHk0BRBzikzuGDqNmPQbg5ifMEqsHLiIUcQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -3563,34 +3563,34 @@ snapshots:
 
   '@types/tinycolor2@1.4.6': {}
 
-  '@typescript-eslint/eslint-plugin@8.0.0-alpha.34(@typescript-eslint/parser@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2))(eslint@9.6.0)(typescript@5.5.2)':
+  '@typescript-eslint/eslint-plugin@8.0.0-alpha.34(@typescript-eslint/parser@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3))(eslint@9.6.0)(typescript@5.5.3)':
     dependencies:
       '@eslint-community/regexpp': 4.11.0
-      '@typescript-eslint/parser': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2)
+      '@typescript-eslint/parser': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)
       '@typescript-eslint/scope-manager': 8.0.0-alpha.34
-      '@typescript-eslint/type-utils': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2)
-      '@typescript-eslint/utils': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2)
+      '@typescript-eslint/type-utils': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)
+      '@typescript-eslint/utils': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)
       '@typescript-eslint/visitor-keys': 8.0.0-alpha.34
       eslint: 9.6.0
       graphemer: 1.4.0
       ignore: 5.3.1
       natural-compare: 1.4.0
-      ts-api-utils: 1.3.0(typescript@5.5.2)
+      ts-api-utils: 1.3.0(typescript@5.5.3)
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.5.3
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/parser@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2)':
+  '@typescript-eslint/parser@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)':
     dependencies:
       '@typescript-eslint/scope-manager': 8.0.0-alpha.34
       '@typescript-eslint/types': 8.0.0-alpha.34
-      '@typescript-eslint/typescript-estree': 8.0.0-alpha.34(typescript@5.5.2)
+      '@typescript-eslint/typescript-estree': 8.0.0-alpha.34(typescript@5.5.3)
       '@typescript-eslint/visitor-keys': 8.0.0-alpha.34
       debug: 4.3.5
       eslint: 9.6.0
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.5.3
     transitivePeerDependencies:
       - supports-color
 
@@ -3599,21 +3599,21 @@ snapshots:
       '@typescript-eslint/types': 8.0.0-alpha.34
       '@typescript-eslint/visitor-keys': 8.0.0-alpha.34
 
-  '@typescript-eslint/type-utils@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2)':
+  '@typescript-eslint/type-utils@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)':
     dependencies:
-      '@typescript-eslint/typescript-estree': 8.0.0-alpha.34(typescript@5.5.2)
-      '@typescript-eslint/utils': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2)
+      '@typescript-eslint/typescript-estree': 8.0.0-alpha.34(typescript@5.5.3)
+      '@typescript-eslint/utils': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)
       debug: 4.3.5
-      ts-api-utils: 1.3.0(typescript@5.5.2)
+      ts-api-utils: 1.3.0(typescript@5.5.3)
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.5.3
     transitivePeerDependencies:
       - eslint
       - supports-color
 
   '@typescript-eslint/types@8.0.0-alpha.34': {}
 
-  '@typescript-eslint/typescript-estree@8.0.0-alpha.34(typescript@5.5.2)':
+  '@typescript-eslint/typescript-estree@8.0.0-alpha.34(typescript@5.5.3)':
     dependencies:
       '@typescript-eslint/types': 8.0.0-alpha.34
       '@typescript-eslint/visitor-keys': 8.0.0-alpha.34
@@ -3622,18 +3622,18 @@ snapshots:
       is-glob: 4.0.3
       minimatch: 9.0.5
       semver: 7.6.2
-      ts-api-utils: 1.3.0(typescript@5.5.2)
+      ts-api-utils: 1.3.0(typescript@5.5.3)
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.5.3
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2)':
+  '@typescript-eslint/utils@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)':
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@9.6.0)
       '@typescript-eslint/scope-manager': 8.0.0-alpha.34
       '@typescript-eslint/types': 8.0.0-alpha.34
-      '@typescript-eslint/typescript-estree': 8.0.0-alpha.34(typescript@5.5.2)
+      '@typescript-eslint/typescript-estree': 8.0.0-alpha.34(typescript@5.5.3)
       eslint: 9.6.0
     transitivePeerDependencies:
       - supports-color
@@ -3998,9 +3998,9 @@ snapshots:
       eslint-compat-utils: 0.5.1(eslint@9.6.0)
       esutils: 2.0.3
       known-css-properties: 0.34.0
-      postcss: 8.4.38
-      postcss-load-config: 3.1.4(postcss@8.4.38)
-      postcss-safe-parser: 6.0.0(postcss@8.4.38)
+      postcss: 8.4.39
+      postcss-load-config: 3.1.4(postcss@8.4.39)
+      postcss-safe-parser: 6.0.0(postcss@8.4.39)
       postcss-selector-parser: 6.1.0
       semver: 7.6.2
       svelte-eslint-parser: 0.39.2(svelte@5.0.0-next.166)
@@ -4763,12 +4763,12 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.4.38
 
-  postcss-load-config@3.1.4(postcss@8.4.38):
+  postcss-load-config@3.1.4(postcss@8.4.39):
     dependencies:
       lilconfig: 2.1.0
       yaml: 1.10.2
     optionalDependencies:
-      postcss: 8.4.38
+      postcss: 8.4.39
 
   postcss-load-config@4.0.2(postcss@8.4.38):
     dependencies:
@@ -4790,13 +4790,13 @@ snapshots:
       postcss: 8.4.38
       postcss-selector-parser: 6.1.0
 
-  postcss-safe-parser@6.0.0(postcss@8.4.38):
+  postcss-safe-parser@6.0.0(postcss@8.4.39):
     dependencies:
-      postcss: 8.4.38
+      postcss: 8.4.39
 
-  postcss-scss@4.0.9(postcss@8.4.38):
+  postcss-scss@4.0.9(postcss@8.4.39):
     dependencies:
-      postcss: 8.4.38
+      postcss: 8.4.39
 
   postcss-selector-parser@6.0.10:
     dependencies:
@@ -4821,7 +4821,6 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.0.1
       source-map-js: 1.2.0
-    optional: true
 
   preferred-pm@3.1.3:
     dependencies:
@@ -5121,8 +5120,8 @@ snapshots:
       picocolors: 1.0.1
       sade: 1.8.1
       svelte: 5.0.0-next.166
-      svelte-preprocess: 5.1.4(@babel/core@7.24.7)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166)(typescript@5.5.2)
-      typescript: 5.5.2
+      svelte-preprocess: 5.1.4(@babel/core@7.24.7)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166)(typescript@5.5.3)
+      typescript: 5.5.3
     transitivePeerDependencies:
       - '@babel/core'
       - coffeescript
@@ -5139,8 +5138,8 @@ snapshots:
       eslint-scope: 7.2.2
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
-      postcss: 8.4.38
-      postcss-scss: 4.0.9(postcss@8.4.38)
+      postcss: 8.4.39
+      postcss-scss: 4.0.9(postcss@8.4.39)
     optionalDependencies:
       svelte: 5.0.0-next.166
 
@@ -5148,7 +5147,7 @@ snapshots:
     dependencies:
       svelte: 5.0.0-next.166
 
-  svelte-preprocess@5.1.4(@babel/core@7.24.7)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166)(typescript@5.5.2):
+  svelte-preprocess@5.1.4(@babel/core@7.24.7)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166)(typescript@5.5.3):
     dependencies:
       '@types/pug': 2.0.10
       detect-indent: 6.1.0
@@ -5160,7 +5159,7 @@ snapshots:
       '@babel/core': 7.24.7
       postcss: 8.4.39
       postcss-load-config: 4.0.2(postcss@8.4.39)
-      typescript: 5.5.2
+      typescript: 5.5.3
 
   svelte@5.0.0-next.166:
     dependencies:
@@ -5259,15 +5258,15 @@ snapshots:
 
   tree-kill@1.2.2: {}
 
-  ts-api-utils@1.3.0(typescript@5.5.2):
+  ts-api-utils@1.3.0(typescript@5.5.3):
     dependencies:
-      typescript: 5.5.2
+      typescript: 5.5.3
 
   ts-interface-checker@0.1.13: {}
 
   tslib@2.6.3: {}
 
-  tsup@8.1.0(postcss@8.4.38)(typescript@5.5.2):
+  tsup@8.1.0(postcss@8.4.38)(typescript@5.5.3):
     dependencies:
       bundle-require: 4.2.1(esbuild@0.21.5)
       cac: 6.7.14
@@ -5285,7 +5284,7 @@ snapshots:
       tree-kill: 1.2.2
     optionalDependencies:
       postcss: 8.4.38
-      typescript: 5.5.2
+      typescript: 5.5.3
     transitivePeerDependencies:
       - supports-color
       - ts-node
@@ -5325,18 +5324,18 @@ snapshots:
 
   type-fest@4.20.1: {}
 
-  typescript-eslint@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2):
+  typescript-eslint@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3):
     dependencies:
-      '@typescript-eslint/eslint-plugin': 8.0.0-alpha.34(@typescript-eslint/parser@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2))(eslint@9.6.0)(typescript@5.5.2)
-      '@typescript-eslint/parser': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2)
-      '@typescript-eslint/utils': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.2)
+      '@typescript-eslint/eslint-plugin': 8.0.0-alpha.34(@typescript-eslint/parser@8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3))(eslint@9.6.0)(typescript@5.5.3)
+      '@typescript-eslint/parser': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)
+      '@typescript-eslint/utils': 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.5.3
     transitivePeerDependencies:
       - eslint
       - supports-color
 
-  typescript@5.5.2: {}
+  typescript@5.5.3: {}
 
   ufo@1.5.3: {}
 
