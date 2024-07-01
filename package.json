@@ -19,6 +19,10 @@
 		"typescript",
 		"svelte auth"
 	],
+	"engines": {
+		"node": ">=20.0.0"
+	},
+	"packageManager": "pnpm@9.4.0",
 	"scripts": {
 		"build:cli": "turbo --filter=create-sva build",
 		"build:css": "turbo --filter=create-sva build:css",
@@ -40,10 +44,6 @@
 		"typecheck": "turbo typecheck",
 		"pub:beta": "cd cli && pnpm pub:beta",
 		"pub:release": "cd cli && pnpm pub:release"
-	},
-	"packageManager": "pnpm@8.15.6",
-	"engines": {
-		"node": ">=20"
 	},
 	"dependencies": {
 		"@changesets/changelog-github": "^0.5.0",
