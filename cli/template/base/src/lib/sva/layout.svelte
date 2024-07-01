@@ -25,10 +25,8 @@
 </div>
 
 <style lang="postcss">
-	:global(body) {
-		background-color: theme(colors.slate.950);
-	}
 	:global(#sva-layout) {
+		background-color: theme(colors.slate.950);
 		--sva-color-1: #8537d1;
 		--sva-color-2: #be3793;
 		--sva-color-3: #e7445f;

@@ -1,4 +1,4 @@
-import { ClackOption } from "$src/data/types.js";
+import type { ClackOption } from "$src/data/types.js";
 
 export const dev_tool_solutions = ["none", "husky", "vscode"] as const;
 export type DevToolSolution = (typeof dev_tool_solutions)[number];

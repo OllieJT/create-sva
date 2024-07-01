@@ -1,6 +1,6 @@
 import { PKG_ROOT } from "$src/data/constants.js";
-import { DatabaseSolution } from "$src/data/options.js";
-import { AvailableDependencies } from "$src/installers/dependency-version-map.js";
+import type { DatabaseSolution } from "$src/data/options.js";
+import type { AvailableDependencies } from "$src/installers/dependency-version-map.js";
 import { type Installer } from "$src/installers/installer.js";
 import { add_env_variable } from "$src/utility/add-env_variable.js";
 import { add_pkg_dependency } from "$src/utility/add-pkg-dependency.js";
@@ -64,7 +64,7 @@ export const drizzle_installer: Installer = ({ packages, project_dir, database_s
 
 	const config_src = path.join(source, `config/drizzle-config-${database_solution}.ts`);
 	const config_dest = path.join(project_dir, "drizzle.config.ts");
-	let config_content = fs.readFileSync(config_src, "utf-8");
+	const config_content = fs.readFileSync(config_src, "utf-8");
 
 	// Setup schema files
 
@@ -74,7 +74,7 @@ export const drizzle_installer: Installer = ({ packages, project_dir, database_s
 		`src/lib/server/schema-${database_solution}${schema_suffix}.ts`,
 	);
 	const schema_dest = path.join(dest_server, "schema.ts");
-	let schema_content = fs.readFileSync(schema_src, "utf-8");
+	const schema_content = fs.readFileSync(schema_src, "utf-8");
 
 	// Setup client files
 

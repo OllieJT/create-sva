@@ -1,13 +1,13 @@
 import { CLI_DESCRIPTION, CLI_NAME, DEFAULT_APP_NAME } from "$src/data/constants.js";
 import { get_user_pkg_manager } from "$src/data/get-user-pkg-manager.js";
 import {
-	AvailablePackages,
-	DatabaseSolution,
 	adapter_options,
 	auth_options,
 	css_options,
 	database_options,
 	dev_tool_options,
+	type AvailablePackages,
+	type DatabaseSolution,
 } from "$src/data/options.js";
 import { logger } from "$src/utility/logger.js";
 import { validate_app_name } from "$src/utility/validate-app-name.js";

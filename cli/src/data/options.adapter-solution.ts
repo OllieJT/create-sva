@@ -1,4 +1,4 @@
-import { ClackOption } from "$src/data/types.js";
+import type { ClackOption } from "$src/data/types.js";
 
 export const adapter_solutions = ["node", "vercel", "netlify", "cloudflare", "auto"] as const;
 export type AdapterSolution = (typeof adapter_solutions)[number];
