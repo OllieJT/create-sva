@@ -1,8 +1,8 @@
-import { AdapterSolution } from "$src/data/options.adapter-solution.js";
-import { AuthSolution } from "$src/data/options.auth-solution.js";
-import { CssSolution } from "$src/data/options.css-solution.js";
-import { DatabaseSolution } from "$src/data/options.database-solution.js";
-import { DevToolSolution } from "$src/data/options.dev-tool-solutions.js";
+import type { AdapterSolution } from "$src/data/options.adapter-solution.js";
+import type { AuthSolution } from "$src/data/options.auth-solution.js";
+import type { CssSolution } from "$src/data/options.css-solution.js";
+import type { DatabaseSolution } from "$src/data/options.database-solution.js";
+import type { DevToolSolution } from "$src/data/options.dev-tool-solutions.js";
 export * from "$src/data/options.adapter-solution.js";
 export * from "$src/data/options.auth-solution.js";
 export * from "$src/data/options.css-solution.js";

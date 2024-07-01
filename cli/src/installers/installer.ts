@@ -1,5 +1,5 @@
-import { PackageManager } from "$src/data/get-user-pkg-manager.js";
-import { AvailablePackages, DatabaseSolution } from "$src/data/options.js";
+import type { PackageManager } from "$src/data/get-user-pkg-manager.js";
+import type { AvailablePackages, DatabaseSolution } from "$src/data/options.js";
 import { adapter_auto_installer } from "$src/installers/installer.adapter-auto.js";
 import { adapter_cloudflare_installer } from "$src/installers/installer.adapter-cloudflare.js";
 import { adapter_netlify_installer } from "$src/installers/installer.adapter-netlify.js";

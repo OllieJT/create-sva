@@ -1,4 +1,4 @@
-import { Installer } from "$src/installers/installer.js";
+import type { Installer } from "$src/installers/installer.js";
 import { add_pkg_dependency } from "$src/utility/add-pkg-dependency.js";
 import { update_pkg_json } from "$src/utility/update-pkg-json.js";
 

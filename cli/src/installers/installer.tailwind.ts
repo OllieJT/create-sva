@@ -1,9 +1,9 @@
 import { PKG_ROOT } from "$src/data/constants.js";
-import { Installer } from "$src/installers/installer.js";
+import type { Installer } from "$src/installers/installer.js";
 import { add_pkg_dependency } from "$src/utility/add-pkg-dependency.js";
 import fs from "fs-extra";
 import path from "path";
-import { Config as PrettierConfig } from "prettier";
+import { type Config as PrettierConfig } from "prettier";
 
 export const tailwind_installer: Installer = ({ project_dir }) => {
 	add_pkg_dependency({

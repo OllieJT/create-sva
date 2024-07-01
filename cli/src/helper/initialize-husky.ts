@@ -30,7 +30,7 @@ export const initialize_husky = async ({ project_dir }: { project_dir: string })
 		fs.writeFileSync(husky_hook, husky_hook_content);
 
 		spinner.succeed(`${chalk.green("Successfully initialized")} ${chalk.green.bold("husky")}\n`);
-	} catch (error) {
+	} catch {
 		// Safeguard, should be unreachable
 		spinner.fail(`${chalk.bold.red("Failed:")} could not initialize hucky.\n`);
 	}

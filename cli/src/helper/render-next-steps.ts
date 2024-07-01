@@ -1,6 +1,6 @@
 import { DEFAULT_APP_NAME } from "$src/data/constants.js";
 import { get_user_pkg_manager } from "$src/data/get-user-pkg-manager.js";
-import { InstallerOptions } from "$src/installers/installer.js";
+import type { InstallerOptions } from "$src/installers/installer.js";
 import { logger } from "$src/utility/logger.js";
 
 // This logs the next steps that the user should take in order to advance the project
@@ -12,7 +12,7 @@ export const render_next_steps = async ({
 	const pkg_manager = get_user_pkg_manager();
 
 	logger.info("Next steps:");
-	project_name !== "." && logger.info(`  cd ${project_name}`);
+	if (project_name !== ".") logger.info(`  cd ${project_name}`);
 	if (no_install) {
 		// To reflect yarn's default behavior of installing packages when no additional args provided
 		if (pkg_manager === "yarn") {

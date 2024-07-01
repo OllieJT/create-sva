@@ -19,6 +19,10 @@
 		"typescript",
 		"svelte auth"
 	],
+	"engines": {
+		"node": ">=20.0.0"
+	},
+	"packageManager": "pnpm@9.4.0",
 	"scripts": {
 		"build:cli": "turbo --filter=create-sva build",
 		"build:css": "turbo --filter=create-sva build:css",
@@ -31,7 +35,7 @@
 		"dev:web": "turbo --filter=@sva/web dev",
 		"dev": "turbo dev",
 		"format:check": "turbo format:check && prettier --check '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
-		"format": "turbo format && prettier --write '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
+		"format": "turbo format && prettier --write '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern && manypkg fix",
 		"lint:fix": "turbo lint:fix && manypkg fix",
 		"lint": "turbo lint && manypkg check",
 		"release": "changeset version",
@@ -41,26 +45,24 @@
 		"pub:beta": "cd cli && pnpm pub:beta",
 		"pub:release": "cd cli && pnpm pub:release"
 	},
-	"packageManager": "pnpm@8.15.6",
-	"engines": {
-		"node": ">=20"
-	},
 	"dependencies": {
 		"@changesets/changelog-github": "^0.5.0",
-		"@changesets/cli": "^2.27.5",
-		"@eslint/js": "^9.5.0",
+		"@changesets/cli": "^2.27.7",
+		"@eslint/js": "^9.6.0",
 		"@manypkg/cli": "^0.21.4",
 		"@total-typescript/ts-reset": "^0.5.1",
-		"@types/eslint": "^8.56.7",
-		"@types/node": "^20.12.12",
-		"eslint": "^9.0.0",
+		"@types/eslint": "^8.56.10",
+		"@types/eslint-config-prettier": "^6.11.3",
+		"@types/eslint__js": "^8.42.3",
+		"@types/node": "^20.14.9",
+		"eslint": "^9.6.0",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^2.36.0",
-		"globals": "^15.0.0",
+		"eslint-plugin-svelte": "^2.41.0",
+		"globals": "^15.7.0",
 		"prettier": "^3.3.2",
 		"prettier-plugin-svelte": "^3.2.5",
-		"turbo": "^2.0.4",
-		"typescript": "^5.4.5",
+		"turbo": "^2.0.6",
+		"typescript": "^5.5.3",
 		"typescript-eslint": "^8.0.0-alpha.20"
 	}
 }

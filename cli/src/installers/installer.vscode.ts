@@ -1,4 +1,4 @@
-import { Installer } from "$src/installers/installer.js";
+import type { Installer } from "$src/installers/installer.js";
 import fs from "fs-extra";
 import merge from "just-merge";
 import path from "path";
