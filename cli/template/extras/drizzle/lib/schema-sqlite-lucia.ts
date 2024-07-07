@@ -2,16 +2,12 @@ import type { AuthProviderID } from "$src/lib/server/auth";
 import { relations, type InferInsertModel, type InferSelectModel } from "drizzle-orm";
 import { integer, primaryKey, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
-/*
-	You might want to seperate your schemas
-	Learn more about it here: https://orm.drizzle.team/docs/sql-schema-declaration
-*/
-
 /* User */
 
 export const user_table = sqliteTable("user", {
 	id: text("id").notNull().primaryKey(),
 	display_name: text("display_name").notNull(),
+	email: text("email").notNull().unique(),
 });
 
 export const user_relations = relations(user_table, ({ many }) => ({

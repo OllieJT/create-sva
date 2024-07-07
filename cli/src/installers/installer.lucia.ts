@@ -49,8 +49,8 @@ export const lucia_installer: Installer = ({ project_dir, database_solution }) =
 	const auth_create_session_dest = path.join(auth_dir, "create-session.ts");
 	fs.copySync(auth_create_session_src, auth_create_session_dest, { overwrite: true });
 
-	const auth_oauth_provider_src = path.join(template_dir, `lib/oauth-provider.ts`);
-	const auth_oauth_provider_dest = path.join(auth_dir, "oauth-provider.ts");
+	const auth_oauth_provider_src = path.join(template_dir, `lib/oauth.ts`);
+	const auth_oauth_provider_dest = path.join(auth_dir, "oauth.ts");
 	fs.copySync(auth_oauth_provider_src, auth_oauth_provider_dest, { overwrite: true });
 
 	const auth_use_oauth_src = path.join(template_dir, `lib/use-oauth.ts`);

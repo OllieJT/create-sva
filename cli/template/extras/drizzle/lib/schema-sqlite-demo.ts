@@ -1,11 +1,6 @@
 import { relations, type InferInsertModel, type InferSelectModel } from "drizzle-orm";
 import { sqliteTable, text } from "drizzle-orm/sqlite-core";
 
-/*
-	You might want to seperate your schemas
-	Learn more about it here: https://orm.drizzle.team/docs/sql-schema-declaration
-*/
-
 /* Task */
 
 export const task_table = sqliteTable("task", {

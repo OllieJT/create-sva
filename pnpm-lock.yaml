@@ -62,6 +62,10 @@ importers:
       typescript-eslint:
         specifier: ^8.0.0-alpha.20
         version: 8.0.0-alpha.34(eslint@9.6.0)(typescript@5.5.3)
+    devDependencies:
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
 
   cli:
     dependencies:
@@ -2838,6 +2842,9 @@ packages:
   zimmerframe@1.1.2:
     resolution: {integrity: sha512-rAbqEGa8ovJy4pyBxZM70hg4pE6gDgaQ0Sl9M3enG3I0d6H4XSAM3GeNGLKnsBpuijUow064sf7ww1nutC5/3w==}
 
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
@@ -5488,3 +5495,5 @@ snapshots:
   yoctocolors@2.0.2: {}
 
   zimmerframe@1.1.2: {}
+
+  zod@3.23.8: {}

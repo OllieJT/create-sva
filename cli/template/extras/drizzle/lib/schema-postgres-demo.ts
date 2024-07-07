@@ -1,11 +1,6 @@
 import { relations, type InferInsertModel, type InferSelectModel } from "drizzle-orm";
 import { pgTable, text } from "drizzle-orm/pg-core";
 
-/*
-	You might want to seperate your schemas
-	Learn more about it here: https://orm.drizzle.team/docs/sql-schema-declaration
-*/
-
 /* Task */
 
 export const task_table = pgTable("task", {

@@ -5,7 +5,7 @@ import { db } from "$src/lib/server/db";
 import { DrizzleSQLiteAdapter } from "@lucia-auth/adapter-drizzle";
 import { Lucia } from "lucia";
 export * from "./create-session";
-export * from "./oauth-provider";
+export * from "./oauth";
 export * from "./use-oauth";
 
 const adapter = new DrizzleSQLiteAdapter(db, session_table, user_table);

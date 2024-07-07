@@ -2,16 +2,12 @@ import type { AuthProviderID } from "$src/lib/server/auth";
 import { relations, type InferInsertModel, type InferSelectModel } from "drizzle-orm";
 import { datetime, mysqlTable, primaryKey, varchar } from "drizzle-orm/mysql-core";
 
-/*
-	You might want to seperate your schemas
-	Learn more about it here: https://orm.drizzle.team/docs/sql-schema-declaration
-*/
-
 /* User */
 
 export const user_table = mysqlTable("user", {
 	id: varchar("id", { length: 255 }).primaryKey(),
 	display_name: varchar("display_name", { length: 255 }).notNull(),
+	email: varchar("email", { length: 255 }).notNull().unique(),
 });
 
 export const user_relations = relations(user_table, ({ many }) => ({
