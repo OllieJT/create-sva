@@ -109,8 +109,8 @@ importers:
         specifier: ^1.1.6
         version: 1.1.6
       '@types/node':
-        specifier: ^20.14.9
-        version: 20.14.9
+        specifier: ^20.14.10
+        version: 20.14.10
       prettier:
         specifier: ^3.3.2
         version: 3.3.2
@@ -169,8 +169,8 @@ importers:
         specifier: ^2.41.0
         version: 2.41.0(eslint@9.6.0)(svelte@5.0.0-next.166)
       globals:
-        specifier: ^15.7.0
-        version: 15.7.0
+        specifier: ^15.8.0
+        version: 15.8.0
       prettier:
         specifier: ^3.3.2
         version: 3.3.2
@@ -185,7 +185,7 @@ importers:
         version: 5.0.0-next.166
       svelte-check:
         specifier: ^3.8.1
-        version: 3.8.4(@babel/core@7.24.7)(postcss-load-config@6.0.1(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166)
+        version: 3.8.4(@babel/core@7.24.7)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166)
       tailwind-merge:
         specifier: ^2.3.0
         version: 2.3.0
@@ -819,9 +819,6 @@ packages:
 
   '@types/node@20.14.10':
     resolution: {integrity: sha512-MdiXf+nDuMvY0gJKxyfZ7/6UFsETO7mGKF54MVD/ekJS6HdFtpZFBgrh6Pseu64XTb2MLyFPlbW6hj8HYRQNOQ==}
-
-  '@types/node@20.14.9':
-    resolution: {integrity: sha512-06OCtnTXtWOZBJlRApleWndH4JsRVs1pDCc8dLSQp+7PpUpX3ePdHyeNSFTeSe7FtKyQkrlPvHwJOW3SLd8Oyg==}
 
   '@types/pug@2.0.10':
     resolution: {integrity: sha512-Sk/uYFOBAB7mb74XcpizmH0KOR2Pv3D2Hmrh1Dmy5BmK3MpdSa5kqZcg6EKBdklU0bFXX9gCfzvpnyUehrPIuA==}
@@ -1478,10 +1475,6 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
-  globals@15.7.0:
-    resolution: {integrity: sha512-ivatRXWwKC6ImcdKO7dOwXuXR5XFrdwo45qFwD7D0qOkEPzzJdLXC3BHceBdyrPOD3p1suPaWi4Y4NMm2D++AQ==}
-    engines: {node: '>=18'}
-
   globals@15.8.0:
     resolution: {integrity: sha512-VZAJ4cewHTExBWDHR6yptdIBlx9YSSZuwojj9Nt5mBRXQzrKakDsVKQ1J63sklLvzAJm0X5+RpO4i3Y2hcOnFw==}
     engines: {node: '>=18'}
@@ -2079,24 +2072,6 @@ packages:
       postcss:
         optional: true
       ts-node:
-        optional: true
-
-  postcss-load-config@6.0.1:
-    resolution: {integrity: sha512-oPtTM4oerL+UXmx+93ytZVN82RrlY/wPUV8IeDxFrzIjXOLF1pN+EmKPLbubvKHT2HC20xXsCAH2Z+CKV6Oz/g==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      jiti: '>=1.21.0'
-      postcss: '>=8.0.9'
-      tsx: ^4.8.1
-      yaml: ^2.4.2
-    peerDependenciesMeta:
-      jiti:
-        optional: true
-      postcss:
-        optional: true
-      tsx:
-        optional: true
-      yaml:
         optional: true
 
   postcss-nested@6.0.1:
@@ -3566,7 +3541,7 @@ snapshots:
   '@types/fs-extra@11.0.4':
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 20.14.9
+      '@types/node': 20.14.10
 
   '@types/gradient-string@1.1.6':
     dependencies:
@@ -3578,15 +3553,11 @@ snapshots:
 
   '@types/jsonfile@6.1.4':
     dependencies:
-      '@types/node': 20.14.9
+      '@types/node': 20.14.10
 
   '@types/node@12.20.55': {}
 
   '@types/node@20.14.10':
-    dependencies:
-      undici-types: 5.26.5
-
-  '@types/node@20.14.9':
     dependencies:
       undici-types: 5.26.5
 
@@ -4314,8 +4285,6 @@ snapshots:
 
   globals@14.0.0: {}
 
-  globals@15.7.0: {}
-
   globals@15.8.0: {}
 
   globalyzer@0.1.0: {}
@@ -4814,9 +4783,10 @@ snapshots:
     optionalDependencies:
       postcss: 8.4.38
 
-  postcss-load-config@6.0.1(postcss@8.4.39):
+  postcss-load-config@4.0.2(postcss@8.4.39):
     dependencies:
       lilconfig: 3.1.2
+      yaml: 2.4.5
     optionalDependencies:
       postcss: 8.4.39
     optional: true
@@ -5149,14 +5119,14 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte-check@3.8.4(@babel/core@7.24.7)(postcss-load-config@6.0.1(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166):
+  svelte-check@3.8.4(@babel/core@7.24.7)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       chokidar: 3.6.0
       picocolors: 1.0.1
       sade: 1.8.1
       svelte: 5.0.0-next.166
-      svelte-preprocess: 5.1.4(@babel/core@7.24.7)(postcss-load-config@6.0.1(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166)(typescript@5.5.3)
+      svelte-preprocess: 5.1.4(@babel/core@7.24.7)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166)(typescript@5.5.3)
       typescript: 5.5.3
     transitivePeerDependencies:
       - '@babel/core'
@@ -5183,7 +5153,7 @@ snapshots:
     dependencies:
       svelte: 5.0.0-next.166
 
-  svelte-preprocess@5.1.4(@babel/core@7.24.7)(postcss-load-config@6.0.1(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166)(typescript@5.5.3):
+  svelte-preprocess@5.1.4(@babel/core@7.24.7)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.166)(typescript@5.5.3):
     dependencies:
       '@types/pug': 2.0.10
       detect-indent: 6.1.0
@@ -5194,7 +5164,7 @@ snapshots:
     optionalDependencies:
       '@babel/core': 7.24.7
       postcss: 8.4.39
-      postcss-load-config: 6.0.1(postcss@8.4.39)
+      postcss-load-config: 4.0.2(postcss@8.4.39)
       typescript: 5.5.3
 
   svelte@5.0.0-next.166:
