@@ -33,7 +33,7 @@
 	],
 	"scripts": {
 		"typecheck": "tsc --noEmit",
-		"build:css": "npx tailwind -i ./template/extras/src/tailwind.pcss -o ./template/base/src/app.pcss",
+		"build:css": "npx tailwind -i ./template/extras/tailwind/app.pcss -o ./template/base/src/app.pcss",
 		"build:readme": "cp -f ../README.md ./",
 		"build": "tsup",
 		"dev": "tsup --watch",
@@ -68,7 +68,7 @@
 	"devDependencies": {
 		"@types/fs-extra": "^11.0.4",
 		"@types/gradient-string": "^1.1.6",
-		"@types/node": "^20.14.9",
+		"@types/node": "^20.14.10",
 		"prettier": "^3.3.2",
 		"prettier-plugin-svelte": "^3.2.5",
 		"prettier-plugin-tailwindcss": "^0.6.5",

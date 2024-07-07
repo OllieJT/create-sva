@@ -1,9 +1,9 @@
 // src/lib/server/auth.ts
-import { oauth_provider, type AuthProviderID } from "$src/lib/server/auth.oauth-provider";
+import { oauth_provider, type AuthProviderID } from "$src/lib/server/auth";
 import { db } from "$src/lib/server/db";
-import { oauth_table } from "$src/lib/server/schema";
+import { oauth_table } from "$src/lib/server/db/schema";
 import { error, type RequestEvent } from "@sveltejs/kit";
-import { generateState } from "arctic";
+import { generateCodeVerifier, generateState } from "arctic";
 import { and, eq } from "drizzle-orm";
 
 type AuthorizationCodes<Verifier extends boolean> = Verifier extends true
@@ -33,11 +33,20 @@ export function use_oauth({
 		 * Get Login URL:  Redirect a user to this URL to start the OAuth process
 		 * @throws {Error} 500 - Failed to create authorization URL
 		 */
-		async get_login_url() {
+		async get_login_url({ scopes = [] }: { scopes?: string[] } = { scopes: [] }) {
 			const state = generateState();
-			const url = await provider.createAuthorizationURL(state);
+			const verifier = generateCodeVerifier();
+			const url = await provider.createAuthorizationURL(state, { scopes });
 
 			event.cookies.set(provider_key.OAUTH_STATE, state, {
+				path: "/",
+				secure: import.meta.env.PROD,
+				httpOnly: true,
+				maxAge: 60 * 10,
+				sameSite: "lax",
+			});
+
+			event.cookies.set(provider_key.OAUTH_VERIFIER, verifier, {
 				path: "/",
 				secure: import.meta.env.PROD,
 				httpOnly: true,
@@ -63,44 +72,39 @@ export function use_oauth({
 		}): AuthorizationCodes<T> {
 			// Code
 			const code = event.url.searchParams.get("code");
-			if (!code) {
+			if (!code)
 				throw error(400, {
 					title: "No code value provided",
 					message: "Reload, and try loging in again.",
 				});
-			}
 
 			// State
 			const state = event.url.searchParams.get("state");
 			const stored_state = event.cookies.get(provider_key.OAUTH_STATE) ?? undefined;
-			if (!state) {
+			if (!state)
 				throw error(400, {
 					title: "No state value provided",
 					message: "Reload, and try loging in again.",
 				});
-			}
-			if (!stored_state) {
+			if (!stored_state)
 				throw error(400, {
 					title: "No stored state value provided",
 					message: "Reload, and try loging in again.",
 				});
-			}
-			if (state !== stored_state) {
+			if (state !== stored_state)
 				throw error(400, {
 					title: "State values do not match",
 					message: "Reload, and try loging in again.",
 				});
-			}
 
 			// Verifier
 			const stored_verifier = event.cookies.get(provider_key.OAUTH_VERIFIER) ?? undefined;
 			if (with_verifier === true) {
-				if (!stored_verifier) {
+				if (!stored_verifier)
 					throw error(400, {
 						title: "No stored verifier value provided",
 						message: "Reload, and try loging in again.",
 					});
-				}
 			}
 
 			return { code, verifier: stored_verifier } as AuthorizationCodes<T>;

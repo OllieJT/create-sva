@@ -20,26 +20,22 @@ export const tailwind_installer: Installer = ({ project_dir }) => {
 		is_dev_dependency: true,
 	});
 
-	const source = path.join(PKG_ROOT, "template/extras");
+	const template_dir = path.join(PKG_ROOT, "template/extras/tailwind");
 
-	const tw_config_src = path.join(source, "config/tailwind.config.ts");
+	const tw_config_src = path.join(template_dir, "tailwind.config.ts");
 	const tw_config_dest = path.join(project_dir, "tailwind.config.ts");
+	fs.copySync(tw_config_src, tw_config_dest, { overwrite: true });
 
-	const postcss_config_src = path.join(source, "config/postcss.config.cjs");
+	const postcss_config_src = path.join(template_dir, "postcss.config.cjs");
 	const postcss_config_dest = path.join(project_dir, "postcss.config.cjs");
+	fs.copySync(postcss_config_src, postcss_config_dest, { overwrite: true });
 
-	const css_src = path.join(source, "src/tailwind.pcss");
+	const css_src = path.join(template_dir, "app.pcss");
 	const css_dest = path.join(project_dir, "src/app.pcss");
+	fs.copySync(css_src, css_dest, { overwrite: true });
 
 	const prettier_path = path.join(project_dir, ".prettierrc");
 	const prettier_content = fs.readJSONSync(prettier_path) as PrettierConfig;
-
 	prettier_content.plugins?.push("prettier-plugin-tailwindcss");
-
-	fs.copySync(tw_config_src, tw_config_dest, { overwrite: true });
-	fs.copySync(postcss_config_src, postcss_config_dest, { overwrite: true });
-	fs.copySync(css_src, css_dest, { overwrite: true });
-	fs.writeJSONSync(prettier_path, prettier_content, {
-		spaces: 2,
-	});
+	fs.writeJSONSync(prettier_path, prettier_content, { spaces: 2 });
 };

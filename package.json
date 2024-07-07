@@ -54,15 +54,16 @@
 		"@types/eslint": "^8.56.10",
 		"@types/eslint-config-prettier": "^6.11.3",
 		"@types/eslint__js": "^8.42.3",
-		"@types/node": "^20.14.9",
+		"@types/node": "^20.14.10",
 		"eslint": "^9.6.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.41.0",
-		"globals": "^15.7.0",
+		"globals": "^15.8.0",
 		"prettier": "^3.3.2",
 		"prettier-plugin-svelte": "^3.2.5",
 		"turbo": "^2.0.6",
 		"typescript": "^5.5.3",
-		"typescript-eslint": "^8.0.0-alpha.20"
+		"typescript-eslint": "^8.0.0-alpha.20",
+		"zod": "^3.23.8"
 	}
 }

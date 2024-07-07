@@ -1,14 +1,9 @@
 import { relations, type InferInsertModel, type InferSelectModel } from "drizzle-orm";
-import { sqliteTable, text } from "drizzle-orm/sqlite-core";
-
-/*
-	You might want to seperate your schemas
-	Learn more about it here: https://orm.drizzle.team/docs/sql-schema-declaration
-*/
+import { pgTable, text } from "drizzle-orm/pg-core";
 
 /* Task */
 
-export const task_table = sqliteTable("task", {
+export const task_table = pgTable("task", {
 	id: text("id").primaryKey(),
 	content: text("content").notNull(),
 	topic_id: text("topic_id").references(() => topic_table.id, {
@@ -29,7 +24,7 @@ export type DBInsertTask = InferInsertModel<typeof task_table>;
 
 /* Topic */
 
-export const topic_table = sqliteTable("topic", {
+export const topic_table = pgTable("topic", {
 	id: text("id").primaryKey(),
 	name: text("content").notNull(),
 });

@@ -1,10 +1,6 @@
 import type { PackageManager } from "$src/data/get-user-pkg-manager.js";
 import type { AvailablePackages, DatabaseSolution } from "$src/data/options.js";
-import { adapter_auto_installer } from "$src/installers/installer.adapter-auto.js";
-import { adapter_cloudflare_installer } from "$src/installers/installer.adapter-cloudflare.js";
-import { adapter_netlify_installer } from "$src/installers/installer.adapter-netlify.js";
-import { adapter_node_installer } from "$src/installers/installer.adapter-node.js";
-import { adapter_vercel_installer } from "$src/installers/installer.adapter-vercel.js";
+import { get_adapter_installer } from "$src/installers/installer.adapter-auto.js";
 import { drizzle_installer } from "$src/installers/installer.drizzle.js";
 import { husky_installer } from "$src/installers/installer.husky.js";
 import { lucia_installer } from "$src/installers/installer.lucia.js";
@@ -35,19 +31,25 @@ export type PkgInstallerMap = {
 
 export const initialize_packages = (packages: AvailablePackages[]): PkgInstallerMap => ({
 	// SvelteKit adapters
-	"adapter:auto": { is_used: packages.includes("adapter:auto"), installer: adapter_auto_installer },
+	"adapter:auto": {
+		is_used: packages.includes("adapter:auto"),
+		installer: get_adapter_installer("auto"),
+	},
 	"adapter:cloudflare": {
 		is_used: packages.includes("adapter:cloudflare"),
-		installer: adapter_cloudflare_installer,
+		installer: get_adapter_installer("cloudflare"),
 	},
 	"adapter:netlify": {
 		is_used: packages.includes("adapter:netlify"),
-		installer: adapter_netlify_installer,
+		installer: get_adapter_installer("netlify"),
 	},
-	"adapter:node": { is_used: packages.includes("adapter:node"), installer: adapter_node_installer },
+	"adapter:node": {
+		is_used: packages.includes("adapter:node"),
+		installer: get_adapter_installer("node"),
+	},
 	"adapter:vercel": {
 		is_used: packages.includes("adapter:vercel"),
-		installer: adapter_vercel_installer,
+		installer: get_adapter_installer("vercel"),
 	},
 
 	// Auth solutions

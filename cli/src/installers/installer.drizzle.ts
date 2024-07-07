@@ -57,29 +57,41 @@ export const drizzle_installer: Installer = ({ packages, project_dir, database_s
 
 	// Moving Files
 
-	const source = path.join(PKG_ROOT, "template/extras");
-	const dest_server = path.join(project_dir, "src/lib/server");
+	const template_dir = path.join(PKG_ROOT, "template/extras/drizzle");
+	const db_dir = path.join(project_dir, "src/lib/server/db");
+	fs.mkdirSync(db_dir, { recursive: true });
 
 	// Setup config files
 
-	const config_src = path.join(source, `config/drizzle-config-${database_solution}.ts`);
+	const config_src = path.join(template_dir, `drizzle.config-${database_solution}.ts`);
 	const config_dest = path.join(project_dir, "drizzle.config.ts");
-	const config_content = fs.readFileSync(config_src, "utf-8");
+	fs.copySync(config_src, config_dest, { overwrite: true });
 
 	// Setup schema files
 
-	const schema_suffix = packages?.["lucia"].is_used ? "-lucia" : "";
-	const schema_src = path.join(
-		source,
-		`src/lib/server/schema-${database_solution}${schema_suffix}.ts`,
-	);
-	const schema_dest = path.join(dest_server, "schema.ts");
-	const schema_content = fs.readFileSync(schema_src, "utf-8");
+	if (packages?.["lucia"].is_used) {
+		const schema_lucia_src = path.join(template_dir, `lib/schema-${database_solution}-lucia.ts`);
+		const schema_lucia_dest = path.join(db_dir, "schema.lucia.ts");
+		fs.copySync(schema_lucia_src, schema_lucia_dest, { overwrite: true });
+
+		const schema_src = path.join(template_dir, `lib/schema-lucia.ts`);
+		const schema_dest = path.join(db_dir, "schema.ts");
+		fs.copySync(schema_src, schema_dest, { overwrite: true });
+	} else {
+		const schema_demo_src = path.join(template_dir, `lib/schema-${database_solution}-demo.ts`);
+		const schema_demo_dest = path.join(db_dir, "schema.demo.ts");
+		fs.copySync(schema_demo_src, schema_demo_dest, { overwrite: true });
+
+		const schema_src = path.join(template_dir, `lib/schema-demo.ts`);
+		const schema_dest = path.join(db_dir, "schema.ts");
+		fs.copySync(schema_src, schema_dest, { overwrite: true });
+	}
 
 	// Setup client files
 
-	const client_src = path.join(source, `src/lib/server/db-${database_solution}.ts`);
-	const client_dest = path.join(dest_server, "db.ts");
+	const client_src = path.join(template_dir, `lib/db-${database_solution}.ts`);
+	const client_dest = path.join(db_dir, "index.ts");
+	fs.copySync(client_src, client_dest, { overwrite: true });
 
 	// Add db:* scripts to package.json
 	update_pkg_json({
@@ -95,12 +107,4 @@ export const drizzle_installer: Installer = ({ packages, project_dir, database_s
 			return pkg;
 		},
 	});
-
-	// Write files to project directory
-
-	fs.copySync(config_src, config_dest, { overwrite: true });
-	fs.mkdirSync(path.dirname(schema_dest), { recursive: true });
-	fs.writeFileSync(schema_dest, schema_content);
-	fs.writeFileSync(config_dest, config_content);
-	fs.copySync(client_src, client_dest, { overwrite: true });
 };
