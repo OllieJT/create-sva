@@ -24,62 +24,62 @@ export const lucia_installer: Installer = ({ project_dir, database_solution }) =
 
 	// Moving Files
 
-	const source = path.join(PKG_ROOT, "template/extras");
-	const dest = path.join(project_dir, "src/");
+	const template_dir = path.join(PKG_ROOT, "template/extras/auth/lucia");
+	const routes_dir = path.join(project_dir, "src/lib/routes");
+	const auth_dir = path.join(project_dir, "src/lib/server/auth");
+	fs.mkdirSync(auth_dir, { recursive: true });
+
+	// Framework
+
+	const global_types_src = path.join(template_dir, `app.d.ts`);
+	const global_types_dest = path.join(project_dir, "src/app.d.ts");
+	fs.copySync(global_types_src, global_types_dest, { overwrite: true });
+
+	const hook_server_src = path.join(template_dir, `hooks.server.ts`);
+	const hook_server_dest = path.join(project_dir, "src/hooks.server.ts");
+	fs.copySync(hook_server_src, hook_server_dest, { overwrite: true });
 
 	// Lib
 
-	const global_types_src = path.join(source, `src/app-lucia.ts`);
-	const global_types_dest = path.join(dest, "app.d.ts");
-
-	const hook_server_src = path.join(source, `src/hooks-server-lucia.ts`);
-	const hook_server_dest = path.join(dest, "hooks.server.ts");
-
-	const auth_src = path.join(source, `src/lib/server/lucia-${database_solution}.ts`);
-	const auth_dest = path.join(dest, "lib/server/auth.ts");
-
-	const auth_create_session_src = path.join(source, `src/lib/server/lucia-auth.create-session.ts`);
-	const auth_create_session_dest = path.join(dest, "lib/server/auth.create-session.ts");
-
-	const auth_oauth_provider_src = path.join(source, `src/lib/server/lucia-auth.oauth-provider.ts`);
-	const auth_oauth_provider_dest = path.join(dest, "lib/server/auth.oauth-provider.ts");
-
-	const auth_use_oauth_src = path.join(source, `src/lib/server/lucia-auth.use-oauth.ts`);
-	const auth_use_oauth_dest = path.join(dest, "lib/server/auth.use-oauth.ts");
-
-	/* Routes */
-
-	const account_server_src = path.join(source, `src/routes/lucia/page-account.ts`);
-	const account_server_dest = path.join(dest, "routes/account/+page.server.ts");
-
-	const account_svelte_src = path.join(source, `src/routes/lucia/page-account.svelte`);
-	const account_svelte_dest = path.join(dest, "routes/account/+page.svelte");
-
-	const login_server_src = path.join(source, `src/routes/lucia/page-login.ts`);
-	const login_server_dest = path.join(dest, "routes/login/+page.server.ts");
-
-	const login_svelte_src = path.join(source, `src/routes/lucia/page-login.svelte`);
-	const login_svelte_dest = path.join(dest, "routes/login/+page.svelte");
-
-	const login_gh_server_src = path.join(source, `src/routes/lucia/github-login.ts`);
-	const login_gh_server_dest = path.join(dest, "routes/login/github/+server.ts");
-
-	const login_ghcb_server_src = path.join(source, `src/routes/lucia/github-callback.ts`);
-	const login_ghcb_server_dest = path.join(dest, "routes/login/github/callback/+server.ts");
-
-	// Copy Lib
-	fs.copySync(global_types_src, global_types_dest, { overwrite: true });
-	fs.copySync(hook_server_src, hook_server_dest, { overwrite: true });
+	const auth_src = path.join(template_dir, `lib/with-${database_solution}.ts`);
+	const auth_dest = path.join(auth_dir, "index.ts");
 	fs.copySync(auth_src, auth_dest, { overwrite: true });
+
+	const auth_create_session_src = path.join(template_dir, `lib/create-session.ts`);
+	const auth_create_session_dest = path.join(auth_dir, "create-session.ts");
 	fs.copySync(auth_create_session_src, auth_create_session_dest, { overwrite: true });
+
+	const auth_oauth_provider_src = path.join(template_dir, `lib/oauth-provider.ts`);
+	const auth_oauth_provider_dest = path.join(auth_dir, "oauth-provider.ts");
 	fs.copySync(auth_oauth_provider_src, auth_oauth_provider_dest, { overwrite: true });
+
+	const auth_use_oauth_src = path.join(template_dir, `lib/use-oauth.ts`);
+	const auth_use_oauth_dest = path.join(auth_dir, "use-oauth.ts");
 	fs.copySync(auth_use_oauth_src, auth_use_oauth_dest, { overwrite: true });
 
-	// Copy Routes
+	// Routes
+
+	const account_server_src = path.join(template_dir, `routes/account/+page.server.ts`);
+	const account_server_dest = path.join(routes_dir, "account/+page.server.ts");
 	fs.copySync(account_server_src, account_server_dest, { overwrite: true });
+
+	const account_svelte_src = path.join(template_dir, `routes/account/+page.svelte`);
+	const account_svelte_dest = path.join(routes_dir, "account/+page.svelte");
 	fs.copySync(account_svelte_src, account_svelte_dest, { overwrite: true });
+
+	const login_server_src = path.join(template_dir, `routes/login/+page.server.ts`);
+	const login_server_dest = path.join(routes_dir, "login/+page.server.ts");
 	fs.copySync(login_server_src, login_server_dest, { overwrite: true });
+
+	const login_svelte_src = path.join(template_dir, `routes/login/+page.svelte`);
+	const login_svelte_dest = path.join(routes_dir, "login/+page.svelte");
 	fs.copySync(login_svelte_src, login_svelte_dest, { overwrite: true });
+
+	const login_gh_server_src = path.join(template_dir, `routes/login/github/+server.ts`);
+	const login_gh_server_dest = path.join(routes_dir, "login/github/+server.ts");
 	fs.copySync(login_gh_server_src, login_gh_server_dest, { overwrite: true });
+
+	const login_ghcb_server_src = path.join(template_dir, `routes/login/github/callback/+server.ts`);
+	const login_ghcb_server_dest = path.join(routes_dir, "login/github/callback/+server.ts");
 	fs.copySync(login_ghcb_server_src, login_ghcb_server_dest, { overwrite: true });
 };
