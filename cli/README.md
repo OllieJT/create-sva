@@ -115,3 +115,9 @@ bun create sva@latest
 [contribute-url]: https://github.com/olliejt/create-sva/blob/main/CONTRIBUTING.md
 [contribute-image]: https://img.shields.io/badge/PRs-welcome-blue.svg
 [github-image]: https://img.shields.io/github/stars/olliejt/create-sva
+
+<a href="https://github.com/olliejt/create-sva/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=olliejt/create-sva" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
