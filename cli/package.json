@@ -33,7 +33,7 @@
 	],
 	"scripts": {
 		"typecheck": "tsc --noEmit",
-		"build:css": "npx tailwind -i ./template/extras/src/tailwind.pcss -o ./template/base/src/app.pcss",
+		"build:css": "npx tailwind -i ./template/extras/tailwind/app.pcss -o ./template/base/src/app.pcss",
 		"build:readme": "cp -f ../README.md ./",
 		"build": "tsup",
 		"dev": "tsup --watch",

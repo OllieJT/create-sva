@@ -5,7 +5,7 @@ import {
 	type AuthProviderID,
 } from "$lib/server/auth";
 import { db } from "$src/lib/server/db";
-import { oauth_table, user_table } from "$src/lib/server/schema";
+import { oauth_table, user_table } from "$src/lib/server/db/schema";
 import { type RequestEvent } from "@sveltejs/kit";
 import { OAuth2RequestError } from "arctic";
 import { generateIdFromEntropySize } from "lucia";

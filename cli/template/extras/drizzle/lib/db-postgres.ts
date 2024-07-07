@@ -1,8 +1,8 @@
 import { dev } from "$app/environment";
 import { DATABASE_URL } from "$env/static/private";
-import * as schema from "$lib/server/schema";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
+import * as schema from "./schema";
 
 /**
  * Cache the database connection in development.

@@ -24,8 +24,8 @@ export const lucia_installer: Installer = ({ project_dir, database_solution }) =
 
 	// Moving Files
 
-	const template_dir = path.join(PKG_ROOT, "template/extras/auth/lucia");
-	const routes_dir = path.join(project_dir, "src/lib/routes");
+	const template_dir = path.join(PKG_ROOT, "template/extras/lucia");
+	const routes_dir = path.join(project_dir, "src/routes");
 	const auth_dir = path.join(project_dir, "src/lib/server/auth");
 	fs.mkdirSync(auth_dir, { recursive: true });
 

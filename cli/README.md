@@ -40,7 +40,7 @@ The _"SVA Stack"_ is a web development stack focused on **simplicity**, **consis
 | [Tailwind CSS](https://tailwindcss.com)       | Styling          | 💠 Recommended |
 | [Lucia](https://lucia-auth.com/)              | Auth             | 💠 Recommended |
 | [Drizzle](https://orm.drizzle.team/)          | Database Adapter | 💠 Recommended |
-| [Husky](https://typicode.github.io/husky/)    | Auth             | 💠 Optional    |
+| [Husky](https://typicode.github.io/husky/)    | Git Hooks        | 💠 Optional    |
 
 > [!NOTE]
 > create-sva is heavily inspired by the [t3stack](https://github.com/t3-oss/create-t3-app/), both in the methodology, and the CLI. The first version of this project used or learnt from many aspects of the t3 codebase, and we owe a lot to it's [contributors](https://github.com/t3-oss/create-t3-app/graphs/contributors).
@@ -83,7 +83,7 @@ The stated goal of `create-sva` is to provide the quickest way to start a new fu
 
 <h2 id="getting-started">Getting Started</h2>
 
-To scaffold an app using `create-t3-app`, run any of the following four commands and answer the command prompt questions:
+To scaffold an app using `create-sva`, run any of the following four commands and answer the command prompt questions:
 
 ### npm
 

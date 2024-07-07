@@ -1,7 +1,7 @@
 // src/lib/server/auth.ts
 import { oauth_provider, type AuthProviderID } from "$src/lib/server/auth";
 import { db } from "$src/lib/server/db";
-import { oauth_table } from "$src/lib/server/schema";
+import { oauth_table } from "$src/lib/server/db/schema";
 import { error, type RequestEvent } from "@sveltejs/kit";
 import { generateCodeVerifier, generateState } from "arctic";
 import { and, eq } from "drizzle-orm";
