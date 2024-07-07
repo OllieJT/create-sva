@@ -3,7 +3,7 @@
 	"access": "public",
 	"baseBranch": "main",
 	"changedFilePatterns": ["src/**", "template/**"],
-	"changelog": ["@changesets/changelog-github", { "repo": "olliejt/create-sva" }],
+	"changelog": ["@changesets/changelog-github", { "repo": "OllieJT/create-sva" }],
 	"commit": false,
 	"fixed": [],
 	"ignore": ["@sva/web"],

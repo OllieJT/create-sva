@@ -1,5 +1,13 @@
 # create-sva
 
+## 0.1.10
+
+- 1f38f1f: Improves oauth example with github email validation
+- 6c78be0: Add multi-file schema for drizzle
+- e14960d: Add missing verifier token required by some oauth providers
+
+### Patch Changes
+
 ## 0.1.9
 
 ### Patch Changes
