@@ -1,9 +1,24 @@
 # create-sva
 
+## 0.1.9
+
+### Patch Changes
+
+- bb4238c: Fix Drizzle postgres config
+- 67f8934: Bump dependencies
+
+## 0.1.8
+
+### Patch Changes
+
+- 53cb545: Fix Husky setup to add pre-commit hooks after installation
+- 53cb545: Fix VSCode Recommended Extensions
+- 53cb545: Fix example UI linting errors
+
 ## 0.1.7
 
-- Adds recommended SvelteKit Error typings
-- Manually adds missing changesets
+- 7ab3c83: Adds recommended SvelteKit Error typings
+- 7ab3c83: Manually adds missing changesets
 
 ### Patch Changes
 
@@ -11,21 +26,21 @@
 
 ### Patch Changes
 
-- fix oauth login redirect url - thanks @hewliyang
-- Correct CLI title text
-- Fixes husky setup
+- 68e0954: fix oauth login redirect url - thanks @hewliyang
+- fefaf4b: Correct CLI title text
+- fefaf4b: Fixes husky setup
 
 ## 0.1.5
 
 ### Patch Changes
 
-- Corrects Svelte version from 4 to 5
-- Refactor initial UI
-- Fixes tailwind styles file location
-- Fixes optional dev tool select (was required to select at least one)
-- Fixes inconsistent prettier configs
-- Adds basic starter UI
-- Fix Lucia Login URL
+- 2a504a1: Corrects Svelte version from 4 to 5
+- 2a504a1: Refactor initial UI
+- 2a504a1: Fixes tailwind styles file location
+- 2a504a1: Fixes optional dev tool select (was required to select at least one)
+- 2a504a1: Fixes inconsistent prettier configs
+- 2a504a1: Adds basic starter UI
+- 2a504a1: Fix Lucia Login URL
 
 ## 0.1.4
 
@@ -52,13 +67,13 @@
 
 ### Patch Changes
 
-- Rename package from create-svapp to create-sa
+- 7e9aa89: Rename package from create-svapp to create-sa
 
 ## 0.1.0
 
 ### Minor Changes
 
-- Correctly installs and configures CLI options
+- eb51610: Correctly installs and configures CLI options
 
 ## 0.0.2
 
