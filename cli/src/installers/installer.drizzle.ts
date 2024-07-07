@@ -69,10 +69,23 @@ export const drizzle_installer: Installer = ({ packages, project_dir, database_s
 
 	// Setup schema files
 
-	const auth_solution = packages?.["lucia"].is_used ? "-lucia" : "";
-	const schema_src = path.join(template_dir, `lib/schema-${database_solution}${auth_solution}.ts`);
-	const schema_dest = path.join(db_dir, "schema.ts");
-	fs.copySync(schema_src, schema_dest, { overwrite: true });
+	if (packages?.["lucia"].is_used) {
+		const schema_lucia_src = path.join(template_dir, `lib/schema-${database_solution}-lucia.ts`);
+		const schema_lucia_dest = path.join(db_dir, "schema.lucia.ts");
+		fs.copySync(schema_lucia_src, schema_lucia_dest, { overwrite: true });
+
+		const schema_src = path.join(template_dir, `lib/schema-lucia.ts`);
+		const schema_dest = path.join(db_dir, "schema.ts");
+		fs.copySync(schema_src, schema_dest, { overwrite: true });
+	} else {
+		const schema_demo_src = path.join(template_dir, `lib/schema-${database_solution}-demo.ts`);
+		const schema_demo_dest = path.join(db_dir, "schema.demo.ts");
+		fs.copySync(schema_demo_src, schema_demo_dest, { overwrite: true });
+
+		const schema_src = path.join(template_dir, `lib/schema-demo.ts`);
+		const schema_dest = path.join(db_dir, "schema.ts");
+		fs.copySync(schema_src, schema_dest, { overwrite: true });
+	}
 
 	// Setup client files
 
