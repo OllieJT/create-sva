@@ -1,12 +1,20 @@
 # create-sva
 
+## 0.1.11
+
+### Patch Changes
+
+- 2d8f056: fix drizzle config schema path
+- 780d5ed: update database schema file path in drizzle config files - thanks @ZSmain
+- 2d8f056: Fixes lucia installer - missing file
+
 ## 0.1.10
+
+### Patch Changes
 
 - 1f38f1f: Improves oauth example with github email validation
 - 6c78be0: Add multi-file schema for drizzle
 - e14960d: Add missing verifier token required by some oauth providers
-
-### Patch Changes
 
 ## 0.1.9
 
