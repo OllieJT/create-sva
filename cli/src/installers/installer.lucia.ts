@@ -53,6 +53,10 @@ export const lucia_installer: Installer = ({ project_dir, database_solution }) =
 	const auth_oauth_provider_dest = path.join(auth_dir, "oauth.ts");
 	fs.copySync(auth_oauth_provider_src, auth_oauth_provider_dest, { overwrite: true });
 
+	const auth_oauth_github_src = path.join(template_dir, `lib/oauth.github.ts`);
+	const auth_oauth_github_dest = path.join(auth_dir, "oauth.github.ts");
+	fs.copySync(auth_oauth_github_src, auth_oauth_github_dest, { overwrite: true });
+
 	const auth_use_oauth_src = path.join(template_dir, `lib/use-oauth.ts`);
 	const auth_use_oauth_dest = path.join(auth_dir, "use-oauth.ts");
 	fs.copySync(auth_use_oauth_src, auth_use_oauth_dest, { overwrite: true });
